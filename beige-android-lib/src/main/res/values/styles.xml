@@ -1,0 +1,48 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        Theme.AppCompat
+        @android:style/Theme.Holo
+    -->
+    <style name="AppBaseTheme" parent="@android:style/Theme.Holo">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+        
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="item_list">
+        <item name="android:padding">2sp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">?android:attr/listPreferredItemHeight</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="nodeParentInPath" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@color/yellow1</item> 
+        <item name="android:textColor">@color/gray0</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="parentsPath">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!-- <item name="android:background">@color/brown1</item>
+        <item name="android:paddingTop">2sp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">2dp</item> -->
+        </style>
+</resources>

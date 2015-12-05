@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/name" />
+    
+    <EditText
+        android:id="@+id/tfItsName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+	    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/nameClass" />
+    
+    <EditText
+        android:id="@+id/tfNameClass"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+	    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/itsValue" />
+    
+    <EditText
+        android:id="@+id/tfValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+	    
+    </LinearLayout>
+    
+    <CheckBox
+        android:id="@+id/cbIsAdjustMinimumSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbIsAdjustMinimumSize" />
+
+    <include layout = "@layout/for_indexz" />
+    
+    <ListView
+        android:id="@+id/lvStructure"
+        android:layout_width="match_parent"        
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </ListView>
+    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button android:id="@+id/btAddMember"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/add_memb"/>
+
+        <Button android:id="@+id/btEditMember"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/edit_memb"/>
+             
+        <Button android:id="@+id/btDelMember"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/del_memb"/>
+             
+    </LinearLayout>
+    	    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+              	    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/name" />
+    
+    <EditText
+        android:id="@+id/tfItsName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+	    
+    </LinearLayout>
+        	    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/frame" />
+    
+    <EditText
+        android:id="@+id/tfItsFrame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:inputType="text" />
+	    
+    </LinearLayout>
+    
+    <CheckBox
+        android:id="@+id/cbIsDestructionOccurence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbIsDestructionOccurence" />
+    
+        	        
+    <include layout = "@layout/for_indexz" />
+    
+    <ListView
+        android:id="@+id/lvExecutions"
+        android:layout_width="match_parent"        
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </ListView>
+    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:measureWithLargestChild="true" >
+
+        <Button android:id="@+id/btAddExecution"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/add_execution"/>
+
+        <Button android:id="@+id/btDelExecution"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/del_execution"/>
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>

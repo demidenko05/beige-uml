@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/name" />
+    
+    <EditText
+        android:id="@+id/taName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+	    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/name_package" />
+    
+    <EditText
+        android:id="@+id/tfPackageName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+	    
+    </LinearLayout>
+        
+    <Spinner
+        android:id="@+id/cmbClasskind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        
+    <CheckBox
+        android:id="@+id/cbIsAdjustMinimumSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbIsAdjustMinimumSize" />
+   
+    <include layout = "@layout/for_indexz" />
+    
+    <ListView
+        android:id="@+id/lvAttributes"
+        android:layout_width="match_parent"        
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </ListView>
+    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button android:id="@+id/btAddAttribute"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/add_attr"/>
+
+        <Button android:id="@+id/btEditAttribute"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/edit_attr"/>
+             
+        <Button android:id="@+id/btDelAttribute"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/del_attr"/>
+             
+     </LinearLayout>
+	    
+    <ListView
+        android:id="@+id/lvMethods"
+        android:layout_width="match_parent"        
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </ListView>
+    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button android:id="@+id/btAddMethod"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/add_meth"/>
+
+        <Button android:id="@+id/btEditMethod"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/edit_meth"/>
+             
+        <Button android:id="@+id/btDelMethod"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/del_meth"/>
+             
+    </LinearLayout>
+	    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>

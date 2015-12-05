@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tree_chooser">Tree chooser</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+    <string name="apply">Apply</string>
+    <string name="error">Error!</string>
+    <string name="warning">Warning!</string>
+    <string name="please_select_item">please_select a item!</string>
+    <string name="file_name">File name:</string>
+    <string name="folder">folder</string>
+   	<string name="stub">stub</string>
+   	<string name="action_settings">Settings</string>
+   	<string name="action_choose">Choose</string>
+   	
+</resources>

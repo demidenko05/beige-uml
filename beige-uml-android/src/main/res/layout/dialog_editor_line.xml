@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <CheckBox
+        android:id="@+id/cbIsDashed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbIsDashed" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/end1" />
+    
+    <Spinner
+        android:id="@+id/cmbPoint1End"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    	    
+    </LinearLayout>
+        	    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/end2" />
+    
+    <Spinner
+        android:id="@+id/cmbPoint2End"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    	    
+    </LinearLayout>
+        	    
+    <include layout = "@layout/for_indexz" />
+    	    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>

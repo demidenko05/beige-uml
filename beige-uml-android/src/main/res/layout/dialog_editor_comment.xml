@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text" />
+    
+    <EditText
+        android:id="@+id/taItsText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+    
+    <CheckBox
+        android:id="@+id/cbHasBorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbHasBorder" />
+   
+    <CheckBox
+        android:id="@+id/cbIsDashedRelations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbIsDashedRelations" />
+ 
+    <include layout = "@layout/for_indexz" />
+    
+    <ListView
+        android:id="@+id/lvConnectors"
+        android:layout_width="match_parent"        
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </ListView>
+    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:measureWithLargestChild="true" >
+
+        <Button android:id="@+id/btAddRelationship"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/add_connector"/>
+
+        <Button android:id="@+id/btDelRelationship"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/del_connector"/>
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>

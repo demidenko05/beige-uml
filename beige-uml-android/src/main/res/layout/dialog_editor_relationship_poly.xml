@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <include layout = "@layout/for_editor_relationship" />
+            
+    <Spinner
+        android:id="@+id/cmbJointType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <ListView
+        android:id="@+id/lvShapeRelationships"
+        android:layout_width="match_parent"        
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </ListView>
+    
+        <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button android:id="@+id/btAddShapeRelationship"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/add_rel"/>
+
+        <Button android:id="@+id/btEditShapeRelationship"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/edit_rel"/>
+             
+        <Button android:id="@+id/btDelShapeRelationship"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/del_rel"/>
+             
+    </LinearLayout>
+    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>

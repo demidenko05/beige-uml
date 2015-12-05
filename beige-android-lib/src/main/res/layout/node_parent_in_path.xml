@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.beigesoft.android.ui.widget.TextViewWithModel xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvNodeName"
+    style="@style/nodeParentInPath"
+    android:text="@string/stub" >
+    
+</org.beigesoft.android.ui.widget.TextViewWithModel>

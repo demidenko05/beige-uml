@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+      
+<LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <include layout = "@layout/for_editor_relationship" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/shape1" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+	    <EditText
+	        android:id="@+id/tfShape1"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:enabled="false"
+	        android:inputType="text" />
+
+	    <Button
+	        android:id="@+id/btShape1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/sign_choose" />
+	    	    
+	</LinearLayout>
+    
+    <CheckBox
+        android:id="@+id/cbIsOwned1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IsOwned" />
+    
+    <Spinner
+        android:id="@+id/cmbRelationshipEnd1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+            
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/shape2" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+	    <EditText
+	        android:id="@+id/tfShape2"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:enabled="false"
+	        android:inputType="text" />
+
+	    <Button
+	        android:id="@+id/btShape2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/sign_choose" />
+	    	    
+	</LinearLayout>
+    
+    <CheckBox
+        android:id="@+id/cbIsOwned2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IsOwned" />
+    
+    <Spinner
+        android:id="@+id/cmbRelationshipEnd2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+            
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>
+
+</ScrollView>

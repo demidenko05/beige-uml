@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BeigeSoft UML editor</string>
+    
+    <string name="name">Name:</string>
+    <string name="description">Description:</string>
+    <string name="kind">Kind:</string>
+    
+    <string name="action_new_project">New project</string>
+    <string name="action_open_project">Open project</string>
+    <string name="action_edit_project">Edit project</string>
+    <string name="action_open_diagram">Open diagram</string>
+    <string name="action_new_diagrampackage">New diagram package</string>
+    <string name="action_new_diagramclass">New diagram class</string>
+    <string name="action_new_diagramusecase">New diagram use case</string>
+    <string name="action_new_diagramobject">New diagram object</string>
+    <string name="action_new_diagramsequence">New diagram sequence</string>
+    <string name="action_save_diagram">Save diagram</string>
+    <string name="action_delete_selected_element">Delete selected element</string>
+    <string name="action_toolbar">Toolbar</string>
+    <string name="action_select">Select</string>
+    <string name="action_add_class">Add class</string>
+    <string name="action_add_interface">Add interface</string>
+    <string name="action_add_enum">Add enum</string>
+    <string name="action_add_lifeline">Add lifeline</string>
+    <string name="action_add_instance">Add instance</string>
+    <string name="action_add_text">Add text</string>
+    <string name="action_add_comment">Add comment</string>
+    <string name="action_add_frame">Add frame</string>
+    <string name="action_add_package">Add package</string>
+    <string name="action_add_package_import">Add package import</string>
+    <string name="action_add_package_merge">Add package merge</string>
+    <string name="action_add_package_access">Add package access</string>
+  	<string name="action_add_rectangle">Add rectangle</string>
+  	<string name="action_add_line">Add line</string>
+  	<string name="action_add_generalization">Add generalization</string>
+    <string name="action_add_realization">Add realization</string>
+    <string name="action_add_aggregation">Add aggregation</string>
+    <string name="action_add_association">Add association</string>
+    <string name="action_add_associationself">Add self-association</string>
+    <string name="action_add_associationpoly">Add poly-association</string>
+    <string name="action_add_composition">Add composition</string>
+    <string name="action_add_dependency">Add dependency</string>
+    <string name="action_add_actor">Add actor</string>
+    <string name="action_add_usecase">Add use case</string>
+    <string name="action_add_usecase_extended">Add use case extended</string>
+    <string name="action_add_extend">Add extend</string>
+    <string name="action_add_include">Add include</string>
+    <string name="action_add_message">Add message</string>
+    <string name="action_add_state_invariant_plus">Add state invariant+</string>
+    <string name="action_add_interaction_use">Add interaction use</string>
+    <string name="action_add_combined_fragment">Add combined fragment</string>
+    <string name="action_add_coregion_messages">Add messages coregion</string>
+    
+    <string name="action_settings">Settings</string>
+    <string name="path_to_project">Path to project:</string>
+    <string name="path_to_java_source_file">Path to java source file:</string>
+    <string name="diagram_margin">Diagram margin:</string>
+    <string name="diagram_gap">Diagram gap:</string>
+    <string name="select_approximation">Select approximation:</string>
+    <string name="UmlClassAttributeHeight">Class attributes height:</string>
+    <string name="UmlClassHeadHeight">Class head height:</string>
+    <string name="MarginTopAttributes">Margin top attributes:</string>
+    <string name="WidthDragRectangle">Width drag rectangle:</string>
+    <string name="RelationEndWidth">Relation end width:</string>
+    <string name="heightEmptyAttributes">Height empty attributes:</string>
+    <string name="lengthSelfRelation">Length self-relationship:</string>
+    <string name="WidthComment">Width min. comment:</string>
+    <string name="HeightMinComment">Height min. omment:</string>
+    <string name="measurement_unit">Measurement unit:</string>
+    <string name="IsUseGenericForGenerateFromJavaClass">Is use generics for generate from java class:</string>
+    <string name="set_defaults">Set defaults</string>
+    
+    <string name="sign_choose">&#8230;</string>
+    <string name="sign_clear">X</string>
+    
+    <string name="text">Text:</string>
+    <string name="add_connector">Add conn.</string>
+    <string name="del_connector">Del conn.</string>
+    <string name="cbHasBorder">has border</string>
+    <string name="cbIsDashedRelations">dashed connectors</string>
+    
+    <string name="name_package">Package:</string>
+    <string name="cbIsAdjustMinimumSize">Is adjust minimum size</string>
+    <string name="add_attr">Add attr.</string>
+    <string name="edit_attr">Edit attr.</string>
+    <string name="del_attr">Del attr.</string>
+    <string name="add_meth">Add meth.</string>
+    <string name="edit_meth">Edit meth.</string>
+    <string name="del_meth">Del meth.</string>
+    
+    <string name="its_type">Type:</string>
+    
+    <string name="tfDefaultValue">Default value:</string>
+    <string name="tfConstraintsValue">Constraints value:</string>
+    <string name="cbIsOrdered">ordered</string>
+    <string name="cbIsUnique">unique</string>
+    <string name="tfLower">Lower:</string>
+    <string name="tfUpper">Upper:</string>
+    <string name="add_param">Add param.</string>
+    <string name="edit_param">Edit param.</string>
+    <string name="del_param">Del param.</string>
+
+    <string name="add_rel">Add rel.</string>
+    <string name="edit_rel">Edit rel.</string>
+    <string name="del_rel">Del rel.</string>
+    
+    <string name="shape1">Shape1:</string>
+    <string name="shape2">Shape2:</string>
+    <string name="IsOwned">owned</string>
+    
+    <string name="LeftTop">Left-top</string>
+    <string name="TopRight">Top-right</string>
+    <string name="RightBottom">Right-bottom</string>
+    <string name="BottomLeft">Bottom-left</string>
+    
+    <string name="cbIsRectangle">rectangle</string>
+    
+    <string name="add_ext">Add ext.</string>
+    <string name="edit_ext">Edit ext.</string>
+    <string name="del_ext">Del ext.</string>
+    
+    <string name="parameters">Parameters:</string>
+    <string name="frame">Frame</string>
+    
+    <string name="is_bold">Is bold</string>
+    <string name="tied_shape">Tied shape:</string>
+    
+    <string name="cbIsNameInHead">Is name in head</string>
+    <string name="comment">Comment:</string>
+    
+    <string name="nameClass">Class:</string>
+    <string name="itsValue">Value:</string>
+    <string name="add_memb">Add memb.</string>
+    <string name="edit_memb">Edit memb.</string>
+    <string name="del_memb">Del memb.</string>
+    
+    <string name="add_element">Add elem.</string>
+    <string name="del_element">Del elem.</string>
+    
+    <string name="cbIsReversed">Is reversed</string>
+    <string name="tfInteractionUseStart">Interaction use start</string>
+    <string name="tfInteractionUseEnd">Interaction use end</string>
+    <string name="tfLifeLineStart">Lifeline start</string>
+    <string name="tfLifeLineEnd">Lifeline end</string>
+    <string name="indexZ">Index-Z</string>
+    <string name="cbIsRightSideOfFrame">Is right side of frame</string>
+    <string name="cbIsLeftSideOfInteractionUseStart">Is left side of interaction use start</string>
+    <string name="cbIsRightSideOfInteractionUseEnd">Is right side of interaction use end</string>
+    <string name="add_trace">Add trace</string>
+    <string name="del_trace">Del trace</string>
+    
+    <string name="cbIsDestructionOccurence">Destruction occurrence</string>
+    <string name="add_execution">Add exec</string>
+    <string name="del_execution">Del exec</string>
+    
+    <string name="cbIsDashed">Dashed</string>
+    <string name="end1">end1</string>
+    <string name="end2">end2</string>
+    
+    <string name="IsTransparent">Transparent</string>
+    <string name="lifeline">Lifeline</string>
+    <string name="add_AsmMessageFull">add msg</string>
+    <string name="del_AsmMessageFull">del msg</string>
+</resources>

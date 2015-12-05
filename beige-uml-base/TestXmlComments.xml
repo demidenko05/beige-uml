@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<comments>
+
+<CommentUml itsId="6764c7b8-162b-4dac-a26c-3286a5c45a7d" >
+<pointStart x="1.0" y="1.0" >
+</pointStart>
+<width>1.66</width>
+<height>1.66</height>
+<indexZ>500</indexZ>
+<isAdjustMinimumSize>true</isAdjustMinimumSize>
+<itsText>cm1</itsText>
+<hasBorder>true</hasBorder>
+<isDashedRelations>true</isDashedRelations>
+<CommentRelationship>
+<pointEnd x="2.12" y="2.0" >
+</pointEnd>
+<sideJoint>RIGHT</sideJoint>
+<sideLength>0.0</sideLength>
+</CommentRelationship>
+<CommentRelationship>
+<pointEnd x="2.13" y="2.0" >
+</pointEnd>
+<sideJoint>RIGHT</sideJoint>
+<sideLength>0.0</sideLength>
+</CommentRelationship>
+</CommentUml>
+
+<CommentUml itsId="222d481a-2723-4415-ae66-134eae4cd4ba" >
+<pointStart x="1.0" y="1.0" >
+</pointStart>
+<width>1.66</width>
+<height>1.66</height>
+<indexZ>500</indexZ>
+<isAdjustMinimumSize>true</isAdjustMinimumSize>
+<itsText>cm2</itsText>
+<hasBorder>true</hasBorder>
+<isDashedRelations>true</isDashedRelations>
+</CommentUml>
+
+</comments>

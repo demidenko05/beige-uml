@@ -1,0 +1,15 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.beigesoft</groupId>
+    <artifactId>beige-uml</artifactId>
+    <version>2.1.9</version>
+  </parent>
+  <artifactId>beige-lib</artifactId>
+  
+  <name>Beigesoft common Java library.</name>
+  <description>Beigesoft common Java library. It contains interfaces and other crossplatform logic (almost UI) e.g. interface to draw line, rectangle, widgets list and tree chooser, utils, etc.</description>
+  
+</project>

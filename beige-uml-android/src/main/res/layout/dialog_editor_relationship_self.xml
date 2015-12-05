@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+      
+<LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <include layout = "@layout/for_editor_relationship" />
+    
+    <EditText
+        android:id="@+id/tfShape"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:inputType="text" />
+
+    <Spinner
+        android:id="@+id/cmbRelationshipEnd1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+                
+    <Spinner
+        android:id="@+id/cmbRelationshipEnd2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+	    
+    <RadioButton
+        android:id="@+id/btLeftTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/LeftTop" />
+            
+    <RadioButton
+        android:id="@+id/btTopRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TopRight" />
+            
+    <RadioButton
+        android:id="@+id/btRightBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/RightBottom" />
+            
+    <RadioButton
+        android:id="@+id/btBottomLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BottomLeft" />
+        
+    </RadioGroup>
+    
+    <LinearLayout
+        style="?android:attr/buttonBarStyle" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+             
+        <include layout = "@layout/for_dialog_apply_ok_close" />
+        
+    </LinearLayout>
+	    
+</LinearLayout>
+
+</ScrollView>

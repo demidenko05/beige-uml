@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" >
+      
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name" />
+    
+    <EditText
+        android:id="@+id/tfItsName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/path_to_project" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+	    <EditText
+	        android:id="@+id/tfPath"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:inputType="text" />
+
+	    <Button
+	        android:id="@+id/btChoosePath"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/sign_choose" />
+	    
+     </LinearLayout>
+
+     <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/path_to_java_source_file" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+	    <EditText
+	        android:id="@+id/tfJavaSourceFile"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:inputType="text" />
+
+	    <Button
+	        android:id="@+id/btChooseJavaSourceFile"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/sign_choose" />
+	    
+     </LinearLayout>
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diagram_margin" />
+    
+    <EditText
+        android:id="@+id/tfDiagramMargin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/UmlClassAttributeHeight" />
+        
+    <EditText 
+    	android:ems="10" 
+    	android:id="@+id/tfUmlClassAttributeHeight" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content" 
+    	android:inputType="numberDecimal">
+        <requestFocus />
+    </EditText>
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diagram_gap" />
+        
+    <EditText
+        android:id="@+id/tfDiagramGap"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_approximation" />
+    
+    <EditText
+        android:id="@+id/tfSelectApproximation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/UmlClassHeadHeight" />
+    
+    <EditText
+        android:id="@+id/tfUmlClassHeadHeight"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MarginTopAttributes" />
+    
+    <EditText
+        android:id="@+id/tfMarginTopAttributes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WidthDragRectangle" />
+    
+    <EditText
+        android:id="@+id/tfWidthDragRectangle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/RelationEndWidth" />
+    
+    <EditText
+        android:id="@+id/tfRelationEndWidth"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/heightEmptyAttributes" />
+    
+    <EditText
+        android:id="@+id/tfHeightEmptyAttributes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lengthSelfRelation" />
+    
+    <EditText
+        android:id="@+id/tfLengthSelfRelation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WidthComment" />
+    
+    <EditText
+        android:id="@+id/tfWidthComment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/HeightMinComment" />
+    
+    <EditText
+        android:id="@+id/tfHeightMinComment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/measurement_unit" />
+
+    <Spinner
+        android:id="@+id/cmbMeasureUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        
+    <CheckBox
+        android:id="@+id/cbIsUseGenericForGenerateFromJavaClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IsUseGenericForGenerateFromJavaClass" />
+   
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="?android:attr/buttonBarStyle" >
+
+        <Button android:id="@+id/btSetDefault"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/set_defaults"/>
+        
+		<include layout = "@layout/for_dialog_apply_ok_close" />
+		
+     </LinearLayout>
+        
+   </LinearLayout>
+        
+</ScrollView>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+  title="Frequently Asked Questions"
+  toplink="false">
+
+  <part id="general">
+    <title>General</title>
+
+    <faq id="how_javadoc_command_line">
+      <question>
+        How to use BeigeUml to generate javadoc from the command line?
+      </question>
+      <answer>
+        <p>Assume your source path is "/home/java/MyProj1/src" and packages starts with "org", 
+        and you put <b>beigesoft-uml.jar</b> into "/home/java/util". To generate Javadoc in "/home/javadoc" execute this command:</p>
+
+        <source>javadoc -d /home/javadoc -doclet org.beigesoft.uml.service.swing.CreatorDoclet -docletpath /home/java/util/beigesoft-uml.jar -umlprojectpath /home/javadocuml -sourcepath /home/java/MyProj1/src -subpackages org </source>
+        <p>Then execute <b>beigesoft-uml.jar</b> open UML project "/home/javadocuml" and make manually changes on diagrams you want. Then again execute javadoc.</p>
+      </answer>
+    </faq>
+
+  </part>
+
+</faqs>
