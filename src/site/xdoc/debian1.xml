@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Beigesoft UML project</title>
+   </properties>
+
+  <body>
+
+    <section name="Install Debian">
+      
+    </section>
+    
+    <section name="LXDE Desktop">
+      <p>LXDE is user friendly and stable Linux desktop. It has traditional hierarchical menu, task panel, icon tray, pretty rendering fonts. 
+        Many necessary applications include Skype work stable on it</p>
+       
+      <p>By default LXDE has no good look and necessary applications. It's easy to fix it</p>
+      <p>1. Change look - open menu-preferences-Customize Look and Feel. For rendering fonts switch to "Font" tab and choose "Enable hinting" to "medium".
+        I prefer this theme:
+        <ol>
+          <li>Tab "Widget" - clearlooks</li>
+          <li>Tab "Icon theme" - adwaita</li>
+          <li>Tab "Window border" - clearlooks-3.4</li>
+        </ol>
+        Right click on menu - panel settings, tab "Appearance" choose "System theme" and Font custom color change to black.
+      </p>
+      
+      <p>2. Install if you prefer follow applications from command line use "apt-get install [app-name]":
+        <ol>
+          <li>pidgin - instant messenger.</li>
+          <li>geany - text editor.</li>
+          <li>vlc - best audio-video player. You can ease take photo - video from webcam with it.</li>
+         </ol>
+        To install any deb-package (Google Chrome, Skype) type in root terminal "dpkg -i [file-name.deb]" then "apt-get -f install" in case unresolved dependences
+      </p>
+      <p>
+        Make settings to take screenshot: edit file ~/.config/openbox/lxde-rc.xml.
+        Change print-screen entries:
+        <code>
+            &lt;!-- Launch full screen screenshot when PrintScreen is pressed --&gt;
+          &lt;keybind key="Print"&gt;
+            &lt;action name="Execute"&gt;
+              &lt;command&gt;scrot -c -d 1&lt;/command&gt;
+            &lt;/action&gt;
+          &lt;/keybind&gt;
+          &lt;!-- Launch current window screenshot when Ctrl-PrintScreen is pressed --&gt;
+          &lt;keybind key="C-Print"&gt;
+            &lt;action name="Execute"&gt;
+              &lt;command&gt;scrot -u -b&lt;/command&gt;
+            &lt;/action&gt;
+          &lt;/keybind&gt;        
+        </code>
+        You will find your screenshots in home directory.
+      </p>
+      
+    </section>
+
+  </body>
+
+</document>
