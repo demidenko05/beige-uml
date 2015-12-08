@@ -2,8 +2,11 @@ target/
 test-output/
 .classpath
 .project
+pom.xml.versionsBackup
+release.properties
 .settings/
 .checkstyle
 .pmd
+/beige-uml-base/TestXmlComments.xml
 /maven-central-deploy.log
 /maven-central-deploy.sh~
