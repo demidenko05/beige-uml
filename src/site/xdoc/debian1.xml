@@ -11,39 +11,142 @@
 
     <section name="Install Debian">
       
+      <p>
+        1. Get first DVD(i386) from <a href="https://www.debian.org/">debian.org</a>
+      </p>
+      <p>
+        2. Burn DVD, or better copy it into flash. In Linux make sure what is your USB drive name (sdb or sdc). In root terminal type "df" to list mounted devices. Hard drive is always "/dev/sda".
+        Insert USB flash and list devices again. USB flash usually appears as "dev/sdb". Unmount flash e.g. "umount /dev/sdb1" then "sync".
+        Copy ISO image into flash with "cp debian-8.2.0-i386-DVD-1.iso /dev/sdb".
+      </p>
+      <p>  
+        3. Boot from DVD/USB-flash. Choose "Install" (text mode). Install Debian with default options.
+        In case you have important information on disc or other operation system you have to manually make disc partitions.
+        Choose LXDE desktop environment.
+      </p>
+      
+      <h4>First start after installation.</h4>
+      <p>
+        1. Add into source list current Debian repositories according <a href="https://wiki.debian.org/SourcesList">wiki.debian.org/SourcesList</a>.
+        I.e. type "nano /etc/apt/sources.list" and add for jessie distributive:
+        <source>
+          deb http://httpredir.debian.org/debian jessie main contrib
+          deb-src http://httpredir.debian.org/debian jessie main contrib
+          deb http://httpredir.debian.org/debian jessie-updates main contrib
+          deb-src http://httpredir.debian.org/debian jessie-updates main contrib          
+          deb http://security.debian.org/ jessie/updates main contrib
+          deb-src http://security.debian.org/ jessie/updates main contrib
+        </source>
+        "apt-get update" will refresh data from changed source.list.
+      </p>
+      <p>
+          In case you have no decent internet connection add ISO DVD into source list:
+          <ol>
+            <li>Create dir for ISO file: "mkdir /debiandvd"</li>
+            <li>Copy ISO from flash (see above about name of flash): "dd if=/dev/sdb of=/debiandvd/dvddeb.iso"</li>
+            <li>Create dir for mount: "mkdir /mnt/dvddeb"</li>
+            <li>Mount ISO: "mount -o loop /debiandvd/dvddeb.iso /mnt/dvddeb"</li>
+            <li>Add ISO entry to source list: "deb file:/mnt/dvddeb/ jessie main contrib"</li>
+            <li>To mount it at startup add entry "/mnt/dvddeb/dvddeb.iso /mnt/dvddeb/mnt udf,iso9660 user,auto,loop 0 0" into "nano /etc/fstab"</li>
+          </ol>
+      </p>
+      <p>
+        You might need to change timezone / locales / keyboard after installation.
+        In root console type "dpkg-reconfigure tzdata" to change timezone (use same for "locales" and "keyboard-configuration"). 
+      </p>
+      
     </section>
     
     <section name="LXDE Desktop">
+      
       <p>LXDE is user friendly and stable Linux desktop. It has traditional hierarchical menu, task panel, icon tray, pretty rendering fonts. 
-        Many necessary applications include Skype work stable on it</p>
-       
-      <p>By default LXDE has no good look and necessary applications. It's easy to fix it</p>
-      <p>1. Change look - open menu-preferences-Customize Look and Feel. For rendering fonts switch to "Font" tab and choose "Enable hinting" to "medium".
-        I prefer this theme:
-        <ol>
+        Many necessary applications include Skype work stable on it. 
+        By default LXDE has no good look and necessary applications. It's easy to fix it.</p>
+        
+      <h4>Change look:</h4>
+      <p>Open "menu-preferences-Customize Look and Feel". For rendering fonts switch to "Font" tab and choose "Enable hinting" to "medium".
+        I suggest this theme:
+        <ul>
           <li>Tab "Widget" - clearlooks</li>
           <li>Tab "Icon theme" - adwaita</li>
           <li>Tab "Window border" - clearlooks-3.4</li>
-        </ol>
+        </ul>
+        Open "menu-preferences-Openbox Configuration Manager" and choose theme "bear2".
         Right click on menu - panel settings, tab "Appearance" choose "System theme" and Font custom color change to black.
       </p>
       
-      <p>2. Install if you prefer follow applications from command line use "apt-get install [app-name]":
-        <ol>
+      <h4>Add applications:</h4>
+      <p>Install if you prefer follow applications from command line use "apt-get install [app-name]":
+        <ul>
+          <li>mc - console file manager.</li>
           <li>pidgin - instant messenger.</li>
           <li>geany - text editor.</li>
-          <li>vlc - best audio-video player. You can ease take photo - video from webcam with it.</li>
-         </ol>
-        To install any deb-package (Google Chrome, Skype) type in root terminal "dpkg -i [file-name.deb]" then "apt-get -f install" in case unresolved dependences
+          <li>vlc - the best media player. You can ease take photo/video from webcam with it.</li>
+          <li><a href="debiangpg.html">GPG agent, if you want to sign many files without have been asked passphrase for many times.</a></li>
+        </ul>
+        To install any deb-package (Google Chrome, Skype) type in root terminal "dpkg -i [file-name.deb]" then "apt-get -f install" in case unresolved dependences.
       </p>
+
+      <h4>Other:</h4>
+      
+      <p>Fix problem that xscreensaver can't show Caps Lock status and keyboard layout:
+        <ul>
+          <li>Create file [home]/.script/screensaver-notifier.sh, add entries:
+            <pre>
+              #!/bin/bash
+              process() {
+                while read line; do 
+              
+                  case "$line" in
+                    UNBLANK*)
+                      echo "Unblank"
+                      setxkbmap -option grp:alt_shift_toggle us,ru
+                    ;;
+                    BLANK*)
+                      echo "Blank"
+                    ;;
+                    RUN*)
+                      echo "Run"
+                    ;;
+              
+                    LOCK*)
+                      echo "Lock"
+                      setxkbmap us
+                      mask=1
+                      key="Caps"
+                      value="$(xset q | grep 'LED mask' | awk '{ print $NF }')"
+                      if [ $(( 0x$value &amp; 0x$mask )) == $mask ]
+                      then
+                          xdotool key Caps_Lock
+                      fi
+              
+                    ;;
+                  esac
+                done
+              }
+              
+              xscreensaver-command -watch | process
+            </pre>
+            Where layouts us and ru replace with yours. Make this script executable for all. This script switch keyboard layout to English and Caps Lock off when screen has been locked.
+          </li>
+          <li>Edit file ~/.config/lxsession/LXDE/autostart, add entry "@[home]/.script/screensaver-notifier.sh"</li>
+        </ul>
+      </p>
+      
+      <p>To resize/move a window when its head is "gone away" press Alt-Space - icon menu for manipulate this window will appeared.</p>
+      
       <p>
-        Make settings to take screenshot: edit file ~/.config/openbox/lxde-rc.xml.
+        Add into .bashrc entry "export HISTCONTROL=ignoreboth:erasedups" to avoid duplications in command line history.
+      </p>
+
+      <p>
+        Make settings to take screenshot: edit file "~/.config/openbox/lxde-rc.xml".
         Change print-screen entries:
-        <code>
-            &lt;!-- Launch full screen screenshot when PrintScreen is pressed --&gt;
+        <source>
+          &lt;!-- Launch full screen screenshot when PrintScreen is pressed --&gt;
           &lt;keybind key="Print"&gt;
             &lt;action name="Execute"&gt;
-              &lt;command&gt;scrot -c -d 1&lt;/command&gt;
+              &lt;command&gt;scrot&lt;/command&gt;
             &lt;/action&gt;
           &lt;/keybind&gt;
           &lt;!-- Launch current window screenshot when Ctrl-PrintScreen is pressed --&gt;
@@ -52,12 +155,27 @@
               &lt;command&gt;scrot -u -b&lt;/command&gt;
             &lt;/action&gt;
           &lt;/keybind&gt;        
-        </code>
+        </source>
         You will find your screenshots in home directory.
+      </p>
+    
+      <h4>Add/edit menu:</h4>
+      <p>
+        Open file manager and go to location "/usr/share/applications". You can open read only any .desktop link with leafpad. To edit/add click menu "Tools - Open current folder in terminal".
+        Type "su" and root password. For example create link for Eclipse by typing "leafpad eclipse-jee-kepler-SR2.desktop" then add these entries:
+        <source>
+          [Desktop Entry]
+          Name=eclipse-jee-kepler-SR2
+          Icon=/home/yury/programmer/java/eclipse-jee-kepler-SR2/icon.xpm
+          Exec=/home/yury/programmer/java/eclipse-jee-kepler-SR2/eclipse
+          Type=Application
+          Terminal=false
+          Categories=GTK;Development;IDE;
+        </source> 
       </p>
       
     </section>
-
+    
   </body>
 
 </document>

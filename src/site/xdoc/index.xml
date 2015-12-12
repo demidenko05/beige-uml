@@ -12,24 +12,23 @@
     <!-- The body of the document contains a number of sections -->
     <section name="Overview">
 
-    <p>Beige UML is an UML diagram editor. It has two user interfaces - ordinary desktop SWING and Android.</p> 
-    <p>Features:
-			<ol>
-				<li>Supports UML 2.4.1 compliant class diagram, package diagram, object diagram, sequence diagram and use case diagram.</li>
-				<li>It generates UML class diagram from Java source.</li>
-				<li>It's a doclet that generates standard Javadoc with UML class diagram.</li>
-			</ol>
-    </p>
-    <p>This application and its source code you can download at <a target="#blank" href="http://sourceforge.net/projects/beigeuml/">sourceforge.net/projects/beigeuml</a></p>
-
-		<p>
-			<a href="gettingstartedgui.html">Getting started.</a>
-		</p>
-
-		<p>Java Swing UML editor screenshots:</p>
-	
-		<p></p>
-		
+      <p>Beige UML is an UML diagram editor. It has two user interfaces - ordinary desktop SWING and Android.</p> 
+      <p>Features:
+        <ol>
+          <li>Supports UML 2.4.1 compliant class diagram, package diagram, object diagram, sequence diagram and use case diagram.</li>
+          <li>It generates UML class diagram from Java source.</li>
+          <li>It's a doclet that generates standard Javadoc with UML class diagram.</li>
+        </ol>
+      </p>
+      <p>This application you can download from <a target="#blank" href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.beigesoft%22">Central Maven Repository: search beige-uml</a>. 
+        There <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> is Swing application and <b>beige-uml-android-[VERSION].apk</b> is Android application.
+        Its source code you can download at <a href="https://github.com/demidenko05/beige-uml">https://github.com/demidenko05/beige-uml</a></p>
+      <p>Source of beige-maven-skin (Maven site skin based on bootstrap) and beige-android-demo (demo of Android tree/file-chooser, list-chooser etc.) you can find at <a href="http://sourceforge.net/projects/beigeuml/">http://sourceforge.net/projects/beigeuml/</a></p>
+  
+  	<p>
+  		<a href="gettingstartedgui.html">Getting started.</a>
+  	</p>
+  
     </section>
 
   </body>

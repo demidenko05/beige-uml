@@ -141,6 +141,27 @@
           <arguments>-P release</arguments>
          </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
+        <inherited>false</inherited>
+        <configuration>
+          <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+          <descriptors>
+            <descriptor>assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   
@@ -169,6 +190,11 @@
   </licenses>
   
   <distributionManagement>
+    <site>
+      <id>beigesoft</id>
+      <name>beigesoft</name>
+      <url>http://www.beigesoft.org</url>
+    </site>
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>

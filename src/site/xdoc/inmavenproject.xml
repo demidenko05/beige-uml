@@ -10,50 +10,47 @@
   <body>
 
     <section name="Use BeigeUML in a Maven project">
-       <p>The best way is use BeigeUML in a Maven project. If you do not prefer Maven see <a href="faq.html">FAQ</a> 
-       how to use beige-uml.jar to generate javadoc from command line.</p>
-       
-       <p>
-       Make following steps to do it:
-       </p>
-       <ol>
-       <li>If you haven't Maven install it <a target="#blank" href="http://maven.apache.org/download.html">Download and Install Maven</a></li>
-       <li>Right now there is no BeigeUML Maven artifact in central Maven repository. 
-       Therefore you should download <a target="#blank" href="http://sourceforge.net/projects/beigeuml/">BeigeUML source</a> (it required for Maven site skin "maven-bootstrap-skin" which source is also there), unpack and install it into local Maven repository. 
-       To install any Maven project open its folder (where is pom.xml) then execute from the command line "mvn install", 
-       result Maven artifact will be in the local Maven repository e.g. in "/home/.m2/repository/org/mycompany/myproj".</li>
-       <li>If your java project is non-Maven create simple Maven project from command line:
-       <source> mvn -B archetype:generate \
-  -DarchetypeGroupId=org.apache.maven.archetypes \
-  -DgroupId=com.mycompany.app \
-  -DartifactId=my-app</source>
-   Where replace group and artifact ID with yours once, then copy your java source into this newly created Maven project.
-   Add these entries into <b>pom.xml</b> after "dependencies":
-   <source>
-   &lt;reporting&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.10.3&lt;/version&gt;
-        &lt;configuration&gt;
-          &lt;doclet&gt;org.beigesoft.uml.service.swing.CreatorDoclet&lt;/doclet&gt;
-          &lt;docletArtifact&gt;
-            &lt;groupId&gt;org.beigesoft&lt;/groupId&gt;
-            &lt;artifactId&gt;beige-uml-swing&lt;/artifactId&gt;
-            &lt;version&gt;2.1.0&lt;/version&gt;
-          &lt;/docletArtifact&gt;
-          &lt;useStandardDocletOptions&gt;true&lt;/useStandardDocletOptions&gt;
-        &lt;/configuration&gt;
-      &lt;/plugin&gt;
-    &lt;/plugins&gt;
-  &lt;/reporting&gt; 
-   </source>
-   Install your Maven project from command line "mvn install", then create Maven site by run "mvn site:site".
-   Maven site will be in folder "target", UML project will be in folder "src/uml". 
-   You can launch <b>beigesoft-uml.jar</b> and make some changes on diagram (see <a href="gettingstartedgui.html">getting started</a>), then recreate site again.
-   </li>
-       </ol>
+      <p>The best way is use BeigeUML in a Maven project. If you do not prefer Maven see <a href="faq.html">FAQ</a> 
+      how to use beige-uml.jar to generate javadoc from command line.</p>
+      
+      <p>
+      Make following steps to do it:
+      </p>
+      <ol>
+        <li>If you haven't Maven install it <a target="#blank" href="http://maven.apache.org/download.html">Download and Install Maven</a></li> 
+        <li>If your java project is non-Maven create simple Maven project from command line:
+          <pre> mvn -B archetype:generate \
+            -DarchetypeGroupId=org.apache.maven.archetypes \
+            -DgroupId=com.mycompany.app \
+            -DartifactId=my-app
+          </pre>
+          Where replace group and artifact ID with yours, then copy your java code into this newly created Maven project.
+          Add these entries into <b>pom.xml</b>:
+          <pre>
+            &lt;reporting&gt;
+              &lt;plugins&gt;
+                &lt;plugin&gt;
+                  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                  &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
+                  &lt;version&gt;2.10.3&lt;/version&gt;
+                  &lt;configuration&gt;
+                    &lt;doclet&gt;org.beigesoft.uml.service.swing.CreatorDoclet&lt;/doclet&gt;
+                    &lt;docletArtifact&gt;
+                      &lt;groupId&gt;org.beigesoft&lt;/groupId&gt;
+                      &lt;artifactId&gt;beige-uml-swing&lt;/artifactId&gt;
+                      &lt;version&gt;2.1.9&lt;/version&gt;
+                    &lt;/docletArtifact&gt;
+                    &lt;useStandardDocletOptions&gt;true&lt;/useStandardDocletOptions&gt;
+                  &lt;/configuration&gt;
+                &lt;/plugin&gt;
+              &lt;/plugins&gt;
+            &lt;/reporting&gt; 
+          </pre>
+          Install your Maven project from command line "mvn install", then create Maven site by run "mvn site:site".
+          Maven site will be in folder "target", UML project will be in folder "src/uml". 
+          You can launch <b>beige-uml.jar</b> and make some changes on diagram (see <a href="gettingstartedgui.html">getting started</a>), then recreate site again.
+        </li>
+      </ol>
       
     </section>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Beigesoft UML project</title>
+   </properties>
+
+  <body>
+
+    <section name="Install GPG agent on LXDE Desktop">
+      <p>
+        1. From command line install "apt-get install gnupg-agent". pinentry-gnome3 is already installed.
+      </p>
+      <p>
+        2. Open [home]/.gnupg/gpg.conf and uncomment option "use-agent"
+      </p>
+      <p>
+        3. Create [home]/.gnupg/gpg-agent.conf and add:
+        <source>
+          pinentry-program /usr/bin/pinentry
+          no-grab
+          default-cache-ttl 1800
+        </source>
+        Where 1800 is time in seconds to hold(remember) passphrase. 
+      </p>
+      <p>
+        4. Add into .bashrc:
+        <source>
+          GPG_TTY=$(tty)
+          export GPG_TTY
+        </source>
+      </p>
+      <p>
+        GPG agent is automatically started on demand by GnuPG. That's all.
+      </p>      
+    </section>
+
+  </body>
+
+</document>

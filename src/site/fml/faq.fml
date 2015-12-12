@@ -10,14 +10,14 @@
 
     <faq id="how_javadoc_command_line">
       <question>
-        How to use BeigeUml to generate javadoc from the command line?
+        How to use BeigeUML to generate javadoc from the command line?
       </question>
       <answer>
-        <p>Assume your source path is "/home/java/MyProj1/src" and packages starts with "org", 
-        and you put <b>beigesoft-uml.jar</b> into "/home/java/util". To generate Javadoc in "/home/javadoc" execute this command:</p>
+        <p>Assume your source path is "/home/java/MyProj1/src" and packages start with "org", 
+        and you put <b>beige-uml.jar</b> into "/home/java/util". To generate Javadoc in "/home/javadoc" and project UML in "/home/javadocuml" execute this command:</p>
 
-        <source>javadoc -d /home/javadoc -doclet org.beigesoft.uml.service.swing.CreatorDoclet -docletpath /home/java/util/beigesoft-uml.jar -umlprojectpath /home/javadocuml -sourcepath /home/java/MyProj1/src -subpackages org </source>
-        <p>Then execute <b>beigesoft-uml.jar</b> open UML project "/home/javadocuml" and make manually changes on diagrams you want. Then again execute javadoc.</p>
+        <source>javadoc -d /home/javadoc -doclet org.beigesoft.uml.service.swing.CreatorDoclet -docletpath /home/java/util/beige-uml.jar -umlprojectpath /home/javadocuml -sourcepath /home/java/MyProj1/src -subpackages org </source>
+        <p>Then launch <b>beige-uml.jar</b> and open UML project "/home/javadocuml" then make manually changes on diagrams you want. Then again launch javadoc.</p>
       </answer>
     </faq>
 

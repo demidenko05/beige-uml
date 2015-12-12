@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Beigesoft UML project</title>
+  </properties>
+
+  <body>
+
+    <!-- The body of the document contains a number of sections -->
+    <section name="Beige UML screenshots">
+
+      <h4 align="center">Java Swing UML editor screenshots:</h4>
+     
+      <p align="center">Class diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dclbusiness.png" /></p>
+    	
+      <p align="center">Package diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dpkpackage1.png" /></p>
+      
+      <p align="center">Object diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dobobject1.png" /></p>
+      
+      <p align="center">Use case diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/ducusecase1.png" /></p>
+      
+      <p align="center">Sequence diagram demo1:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dsecsecdemo1.png" /></p>
+      
+      <p align="center">Sequence diagram demo2:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dsecsecdemo2.png" /></p>
+      
+      <p align="center">Sequence diagram demo3:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dsecsecdemo3.png" /></p>
+    
+      <p align="center">Modified javadoc UML diagram:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dcljavadocuml.png" /></p>
+  
+      <p align="center">Modified javadoc html file:</p>
+      <p align="center"><img style="max-width: 100%" src="include/dcljavadochtml.png" /></p>
+  
+      <h4 align="center">Android UML editor screenshots:</h4>
+  
+      <p align="center">Class diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/androidclass1.png" /></p>
+  
+      <p align="center">Package diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/androidpackage1.png" /></p>
+  
+      <p align="center">Object diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/androidobject1.png" /></p>
+  
+      <p align="center">Use-case diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/androidusecase1.png" /></p>
+  
+      <p align="center">Sequence diagram demo:</p>
+      <p align="center"><img style="max-width: 100%" src="include/android-sdexec.png" /></p>
+            
+      <p align="center">Edit class sample:</p>
+      <p align="center"><img style="max-width: 100%" src="include/androideditclass1.png" /></p>
+  
+      <h4 align="center">Android file-chooser screenshots:</h4>
+  
+      <p align="center">Open UML project(filter="bs-uml.xml"):</p>
+      <p align="center"><img style="max-width: 100%" src="include/androidfilechooser1.png" /></p>
+  
+      <p align="center">Choose diagram file in current project:</p>
+      <p align="center"><img style="max-width: 100%" src="include/androidfilechooser2.png" /></p>
+
+    </section>
+
+  </body>
+
+</document>

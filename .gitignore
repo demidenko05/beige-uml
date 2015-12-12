@@ -1,4 +1,5 @@
 target/
+uml/
 test-output/
 .classpath
 .project

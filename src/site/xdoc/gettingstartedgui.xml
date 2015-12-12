@@ -10,39 +10,39 @@
   <body>
 
     <section name="Getting started">
-      <p>1. Download <b>beigesoft-uml.jar</b> from <a target="#blank" href="http://sourceforge.net/projects/beigeuml/">sourceforge.net/projects/beigeuml</a></p>
+      <p>1. Download latest release <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> from <a target="#blank" href="https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22beige-uml-swing%22">Central Maven Repository: search beige-uml-swing</a>. Then rename it to beige-uml.jar</p>
       <p>2. You should have Java SE Runtime Environment (JRE) version 6+ to run this application. 
        Otherwise install JRE for your operation system (see <a target="#blank" href="http://www.oracle.com/technetwork/java/javase/overview/index.html">oracle.com</a>)</p>
-      <p>3. Launch <b>beige-uml.jar</b> (usually by right click from file explorer). To launch from command line execute: "java -jar beigesoft-uml.jar". 
-      Use java option "-Dawt.useSystemAAFontSettings=gasp" to use OS fonts, i.e. launch: "java -jar -Dawt.useSystemAAFontSettings=gasp beigesoft-uml.jar" </p>
+      <p>3. Launch <b>beige-uml.jar</b> (usually by right click from file explorer). To launch from command line execute: "java -jar beige-uml.jar". 
+      If fonts appear ugly then use java option "-Dawt.useSystemAAFontSettings=gasp" to use OS fonts, i.e. launch: "java -jar -Dawt.useSystemAAFontSettings=gasp beige-uml.jar" </p>
       <p>4. In menu click <b>create new project</b>. Complete project properties, e.g. project name set to "MyUml" and choose path to project (parent folder):
       </p>
-      <p align="center"><img style="max-width: 90%" alt="New project" src="include/newproject.png" /></p>
+      <p align="center"><img style="max-width: 100%" alt="New project" src="include/newproject.png" /></p>
       <p>4. In menu click <b>add class diagram</b>. Click toolbox button "Class" then click on canvas to place UML-class. 
       Class editor will be opened. Enter class name "Business". 
       By the same way add two classes "Owner" and "Employee". 
       </p>
-      <p align="center"><img style="max-width: 90%" alt="Add class diagram" src="include/addclassdiagram.png" /></p>
+      <p align="center"><img style="max-width: 100%" alt="Add class diagram" src="include/addclassdiagram.png" /></p>
       <p>5. Choose project folder "MyUml" at the project tree then press "Ctrl+S" to save diagram into file. 
       Enter "Business" as file name.  
       </p>
       <p>6. Click "Realization" button on toolbox, then click inside class "Business". 
       Press mouse left button on the end rectangle of relation and drag inside "Owner".   
       </p>
-      <p align="center"><img style="max-width: 90%" alt="Add realization" src="include/addrealization.png" /></p>
+      <p align="center"><img style="max-width: 100%" alt="Add realization" src="include/addrealization.png" /></p>
       <p>7. Add realization for "Employee" then save "Ctrl-S":  
       </p>
-      <p align="center"><img style="max-width: 90%" alt="Binary realizations" src="include/binaryrealizations.png" /></p>
+      <p align="center"><img style="max-width: 100%" alt="Binary realizations" src="include/binaryrealizations.png" /></p>
       <p>8. Select both realizations and delete by "Ctrl+Del".    
       </p>
       <p>9. Add N-ary relationship - select from toolbox and click inside "Business".
       In relation editor change relation kind from "Association" to "Realization".
-      Select intermediate joint to "BUS_X". Then add classes "Owner" ans "Employee"- click on button "add" then click on class cell:    
+      Select intermediate joint to "BUS_X". Then add classes "Owner" and "Employee"- click button "add" then choose shape (class):    
       </p>
-      <p align="center"><img style="max-width: 90%" alt="edit realization" src="include/editrealization.png" /></p>
+      <p align="center"><img style="max-width: 100%" alt="edit realization" src="include/editrealization.png" /></p>
       <p>10. Press "OK" to apply changes. Result diagram will be:    
       </p>
-      <p align="center"><img style="max-width: 90%" alt="Result" src="include/result.png" /></p>
+      <p align="center"><img style="max-width: 100%" alt="Result" src="include/result.png" /></p>
     </section>
 
   </body>

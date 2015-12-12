@@ -3,18 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd">
   <skin>
-   <groupId>org.beigesoft</groupId>
-   <artifactId>beige-maven-skin</artifactId>
-   <version>1.0.0</version>
+    <groupId>org.beigesoft</groupId>
+    <artifactId>beige-maven-skin</artifactId>
+    <version>1.0.0</version>
   </skin>
-	<body>
-		<menu ref="reports" />
+  <body>
+    <menu ref="reports" />
     <menu name="Articles">
-       <item name="Getting started" href="gettingstartedgui.html" />
-       <item name="Use BeigeUML in a Maven project" href="inmavenproject.html" />
-     </menu>
+      <item name="Getting started" href="gettingstartedgui.html" />
+      <item name="Use Beige UML in a Maven project" href="inmavenproject.html" />
+      <item name="Working with source code" href="workingwithsource.html" />
+      <item name="Use Debian Linux" href="debian1.html" />
+      <item name="Screenshots" href="screenshots.html" />
+    </menu>
     <menu name="FAQ">
-       <item name="General" href="faq.html" />
-     </menu>
-	</body>
+      <item name="General" href="faq.html" />
+    </menu>
+  </body>
 </project>
