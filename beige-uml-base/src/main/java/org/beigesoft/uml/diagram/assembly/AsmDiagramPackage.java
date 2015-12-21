@@ -43,7 +43,7 @@ import org.beigesoft.uml.ui.IGuiMainUml;
 
 public class AsmDiagramPackage<DRI, SD extends ISettingsDraw, IMG, PRI, DLI> 
     extends AsmDiagramUmlInteractive<DiagramUml, DRI, SD, IMG, PRI, DLI, 
-    CommentUml, IAsmElementUmlInteractive<CommentUml, DRI, SD, PRI>, 
+    CommentUml, IAsmElementUmlInteractive<CommentUml , DRI, SD, PRI>, 
     TextUml, IAsmElementUmlInteractive<TextUml, DRI, SD, PRI>>
     implements IAsmDiagramPackage<DiagramUml, DRI, SD, IMG, PRI, ClassUml>, 
     IContainerShapesFullVariousInteractive<ShapeFullVarious<?>>  {

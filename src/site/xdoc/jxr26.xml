@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>Beigesoft-UML project</title>
+   </properties>
+
+  <body>
+
+    <section name="Fix Maven JXR 2.5 for support generics">
+      <p>Maven JXR plugin 2.5 can't make reference for generic classes. 
+        E.g. for string "public class ProductDao implements IProductDao&amp;lt;Long&amp;gt;" it doesn't make link to IProductDao source.</p>
+      <h4>It takes about 20 minutes to make JXR 2.6 in local Maven repository:</h4>
+      <p>1. Get JXR 2.5 full source <b>jxr-2.5-source-release.zip</b> from <a href="https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jxr%22">https://search.maven.org search: jxr</a>. Unpack it.</p>
+      <p>2. Add new tokenizer JxrTokenizer.java into [jxr26]/src/main/java/org/apache/maven/jxr:
+        <pre>
+package org.apache.maven.jxr;
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+import org.apache.maven.jxr.util.StringEntry;
+
+import java.util.Set;
+import java.util.LinkedHashSet;
+
+/**
+ * &lt;pre&gt;
+ * Tokenizer for JXR HTML string (HTML source code string). 
+ * It extract words (exactly class names) and their positions in string. 
+ * These words (classes) will be linked to their source.
+ * It is alternative to 
+ * @see org.apache.maven.jxr.util.SimpleWordTokenizer 
+ * that don't respect "generics" i.e. it can't tokenize(extract) word IProductDao 
+ * from string "public class ProductDao implements IProductDao&amp;lt;Long&amp;gt;"
+ * &lt;/pre&gt;  
+ * 
+ * @author Yury Demidenko
+ **/
+ 
+public class JxrTokenizer 
+{  
+  private char[] delimitersChar = { '[', ']', '(', ')', '{', '}', '&lt;', '&gt;', '#', '@', '&amp;', '"', 
+    '=', ',', '/', '\\', ' ' };
+  
+  /**
+   * Must be ordered by string length!!!
+   **/
+  private String[] delimitersWord = {"&amp;lt;", "&amp;gt;"};
+    
+  public StringEntry[] tokenize( String line )
+  {
+    return tokenize( line, null );
+  }
+
+  public StringEntry[] tokenize( String line, String find ) 
+  {
+    if ( line == null || line.length() == 0 )
+    {
+        return new StringEntry[0];
+    }
+    Set&lt;StringEntry&gt; setWords = new LinkedHashSet&lt;StringEntry&gt;();
+    int startWord = 0;
+    int endWord = startWord;
+    while ( endWord &lt; line.length() ) 
+    {
+      int currEndRes = evalCurrentPositionEndResult( line, endWord );
+      if ( currEndRes &gt; 0 )
+      {
+        String wrd = line.substring( startWord, endWord );
+        boolean isNeedAddWord = false;
+        if ( find != null ) 
+        {
+          if ( find.equals( wrd ) ) 
+          {
+            isNeedAddWord = true;
+          }
+        }
+        else if ( wrd.length() &gt; 2  &amp;&amp; Character.isUpperCase( wrd.charAt( 0 ) ) &amp;&amp; !wrd.endsWith( ".html" ) ) 
+        //Assume that there is no class with too short name and any class starts with upper case letter 
+        {
+          isNeedAddWord = true;
+        }
+        if ( isNeedAddWord )
+        {
+          StringEntry strEntry = new StringEntry( wrd, startWord );
+          if ( ! setWords.contains( strEntry ) ) //no duplicates
+          {
+            setWords.add( strEntry );
+          }
+        }
+        startWord = endWord + currEndRes;
+        endWord = startWord;
+      }
+      else 
+      {
+        endWord++;
+      }
+    }
+    StringEntry[] result = setWords.toArray( new StringEntry[setWords.size()] );
+    return result;
+  }
+  
+  /**
+   * @param String line to be examined
+   * @param int cursor - current pozition
+   * @return int 0 if there is no delimeter at current pozition overwise length of delimiter
+   **/
+  public int evalCurrentPositionEndResult( String line, int cursor )
+  {
+    for ( int i = 0; i &lt; delimitersWord.length; i++ ) 
+    {
+      if ( line.length() &gt;= cursor + 1 + delimitersWord[i].length()
+        &amp;&amp; line.substring( cursor, cursor + delimitersWord[i].length() ).equals( delimitersWord[i] ) ) 
+      {
+        delimitersWord[i].length();
+      }
+    }
+    char chr = line.charAt( cursor );
+    for ( int i = 0; i &lt; delimitersChar.length; i++ ) 
+    {
+      if ( chr == delimitersChar[i] ) 
+      {
+        return 1;
+      }
+    }
+    return 0;
+  }
+        
+  //Simple getters and setters:
+
+  public char[] getDelimitersChar()
+  {
+    return delimitersChar;
+  }
+
+  public void setDelimitersChar( char[] delimitersChar )
+  {
+    this.delimitersChar = delimitersChar;
+  }
+
+  public String[] getDelimitersWord()
+  {
+    return delimitersWord;
+  }
+
+  public void setDelimitersWord( String[] delimitersWord )
+  {
+    this.delimitersWord = delimitersWord;
+  }
+}
+        </pre>
+      </p>
+      
+      <p>3. Add test JxrTokenizerTest into [jxr26]/src/test/java/org/apache/maven/jxr:
+        <pre>
+package org.apache.maven.jxr;
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+import junit.framework.TestCase;
+
+import org.apache.maven.jxr.util.StringEntry;
+
+public class JxrTokenizerTest 
+  extends TestCase 
+{
+
+  private JxrTokenizer jxrTokenizer;
+
+  @Override
+  protected void setUp() throws Exception {
+      super.setUp();
+      jxrTokenizer = new JxrTokenizer();
+  }
+
+  public void testTokenizer1() throws Exception {
+    String str = "public abstract class AChooser&amp;lt;O&amp;gt;   extends JDialog implements IChooserWithDataSource&amp;lt;O&amp;gt;, ActionListener {";
+    StringEntry[] arrWords = jxrTokenizer.tokenize(str);
+    assertEquals(4, arrWords.length);
+    assertTrue("AChooser".equals(arrWords[0].toString()));
+    assertTrue("JDialog".equals(arrWords[1].toString()));
+    assertTrue("IChooserWithDataSource".equals(arrWords[2].toString()));
+    assertTrue("ActionListener".equals(arrWords[3].toString()));
+  }
+
+  public void testTokenizer2() throws Exception {
+    String str = "&lt;a class=\"jxr_linenumber\" name=\"L48\" href=\"#L48\"&gt;48&lt;/a&gt;    &lt;strong class=\"jxr_keyword\"&gt;public&lt;/strong&gt; &lt;a href=\"../../../../../org/beigesoft/ui/widget/swing/AChooser.html\"&gt;AChooser&lt;/a&gt;(Frame frame, IContainerSrvsGui&amp;lt;Frame&amp;gt; factoryGuiSrvBase, String title) {";
+    //                                                 1                                                                                                                                                  2             3                   4                                          5           
+    StringEntry[] arrWords = jxrTokenizer.tokenize(str);
+    assertEquals(5, arrWords.length);
+    assertTrue("AChooser".equals(arrWords[1].toString()));
+    assertTrue("Frame".equals(arrWords[2].toString()));
+    assertTrue("IContainerSrvsGui".equals(arrWords[3].toString()));
+    assertTrue("String".equals(arrWords[4].toString()));
+  }
+
+  public void testTokenizer3() throws Exception {
+    String str = "&lt;a class=\"jxr_linenumber\" name=\"L34\" href=\"#L34\"&gt;34&lt;/a&gt;  &lt;strong class=\"jxr_keyword\"&gt;public&lt;/strong&gt; &lt;strong class=\"jxr_keyword\"&gt;abstract&lt;/strong&gt; &lt;strong class=\"jxr_keyword\"&gt;class&lt;/strong&gt; AChooser&amp;lt;O&amp;gt; &lt;strong class=\"jxr_keyword\"&gt;extends&lt;/strong&gt; JDialog &lt;strong class=\"jxr_keyword\"&gt;implements&lt;/strong&gt; IChooserWithDataSource&amp;lt;O&amp;gt;, ActionListener {";
+    //                                                 1                                                                                                                                                                     2                                                                 3                                                             4                             5
+    StringEntry[] arrWords = jxrTokenizer.tokenize(str);
+    assertEquals(5, arrWords.length);
+    assertTrue("AChooser".equals(arrWords[1].toString()));
+    assertTrue("JDialog".equals(arrWords[2].toString()));
+    assertTrue("IChooserWithDataSource".equals(arrWords[3].toString()));
+    assertTrue("ActionListener".equals(arrWords[4].toString()));
+  }
+}
+        </pre>
+      </p>
+      
+      <p>4. Add methods equals and hashCode into StringEntry.java in [jxr26]/src/main/java/org/apache/maven/jxr/util:
+        <pre>
+    ...
+    /**
+     * A string will contain only reference for a repeated class
+     **/
+    @Override
+    public boolean equals( Object other )
+    {
+      if ( other == null )
+      {
+        return false;
+      }
+      StringEntry otherSe = (StringEntry) other;
+      return this.value == null ? otherSe.value == null : this.value.equals( otherSe.value );
+    }
+    
+    @Override 
+    public int hashCode()
+    {
+      return this.value == null ? 0 : this.value.hashCode();
+    }
+    ...
+        </pre>
+      </p>
+      
+      <p>
+        5. In <b>org.apache.maven.jxr.JavaCodeTransform</b> replace <b>org.apache.maven.jxr.util.SimpleWordTokenizer</b> to <b>org.apache.maven.jxr.JxrTokenizer</b>:
+        <pre>
+    ...
+          
+          
+    private JxrTokenizer jxrTokenizer;
+
+    // ----------------------------------------------------------------------
+    // constructor
+    // ----------------------------------------------------------------------
+
+    /**
+     * Constructor for the JavaCodeTransform object
+     *
+     * @param packageManager PackageManager for this project
+     */
+    public JavaCodeTransform( PackageManager packageManager )
+    {
+        this.packageManager = packageManager;
+        loadHash();
+        this.fileManager = packageManager.getFileManager();
+        this.jxrTokenizer = new JxrTokenizer();
+    }
+
+          
+   ...
+     public final String xrLine( String line, String packageName, ClassType classType )
+    {
+        StringBuffer buff = new StringBuffer( line );
+
+        String link = null;
+        String find = null;
+        String href = null;
+        ...
+        // now replace the word in the buffer with the link
+
+        String replace = link;
+        StringEntry[] tokens = jxrTokenizer.tokenize( buff.toString(), find );  
+   
+   ...
+   
+    private String jxrFilter( String line )
+    {
+        JavaFile jf = null;
+
+        try
+        {
+            // if the current file isn't set then just return
+            if ( this.getCurrentFilename() == null )
+            {
+                return line;
+            }
+
+            jf = fileManager.getFile( this.getCurrentFilename() );
+        }
+        catch ( IOException e )
+        {
+            e.printStackTrace();
+            return line;
+        }
+        ...
+        v.copyInto( packages );
+
+        StringEntry[] words = jxrTokenizer.tokenize( line );   
+   ...
+        </pre>
+      </p>
+      
+      <p>6. Replace in all pom.xml version from 2.5 to 2.6. Run "mvn clean install".</p>
+      
+    </section>
+
+  </body>
+
+</document>

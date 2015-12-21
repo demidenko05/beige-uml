@@ -29,14 +29,14 @@
       <p>
         1. Add into source list current Debian repositories according <a href="https://wiki.debian.org/SourcesList">wiki.debian.org/SourcesList</a>.
         I.e. type "nano /etc/apt/sources.list" and add for jessie distributive:
-        <source>
+        <pre>
           deb http://httpredir.debian.org/debian jessie main contrib
           deb-src http://httpredir.debian.org/debian jessie main contrib
           deb http://httpredir.debian.org/debian jessie-updates main contrib
           deb-src http://httpredir.debian.org/debian jessie-updates main contrib          
           deb http://security.debian.org/ jessie/updates main contrib
           deb-src http://security.debian.org/ jessie/updates main contrib
-        </source>
+        </pre>
         "apt-get update" will refresh data from changed source.list.
       </p>
       <p>
@@ -88,6 +88,8 @@
       </p>
 
       <h4>Other:</h4>
+      
+      <p>Fix problem that screen not locked when closing laptop lid: uncomment "HandleLidSwitch=suspend" in "/etc/systemd/logind.conf" and restart.</p>
       
       <p>Fix problem that xscreensaver can't show Caps Lock status and keyboard layout:
         <ul>
@@ -142,7 +144,7 @@
       <p>
         Make settings to take screenshot: edit file "~/.config/openbox/lxde-rc.xml".
         Change print-screen entries:
-        <source>
+        <pre>
           &lt;!-- Launch full screen screenshot when PrintScreen is pressed --&gt;
           &lt;keybind key="Print"&gt;
             &lt;action name="Execute"&gt;
@@ -155,7 +157,7 @@
               &lt;command&gt;scrot -u -b&lt;/command&gt;
             &lt;/action&gt;
           &lt;/keybind&gt;        
-        </source>
+        </pre>
         You will find your screenshots in home directory.
       </p>
     
@@ -163,7 +165,7 @@
       <p>
         Open file manager and go to location "/usr/share/applications". You can open read only any .desktop link with leafpad. To edit/add click menu "Tools - Open current folder in terminal".
         Type "su" and root password. For example create link for Eclipse by typing "leafpad eclipse-jee-kepler-SR2.desktop" then add these entries:
-        <source>
+        <pre>
           [Desktop Entry]
           Name=eclipse-jee-kepler-SR2
           Icon=/home/yury/programmer/java/eclipse-jee-kepler-SR2/icon.xpm
@@ -171,7 +173,7 @@
           Type=Application
           Terminal=false
           Categories=GTK;Development;IDE;
-        </source> 
+        </pre> 
       </p>
       
     </section>

@@ -18,19 +18,19 @@
       </p>
       <p>
         3. Create [home]/.gnupg/gpg-agent.conf and add:
-        <source>
+        <pre>
           pinentry-program /usr/bin/pinentry
           no-grab
           default-cache-ttl 1800
-        </source>
+        </pre>
         Where 1800 is time in seconds to hold(remember) passphrase. 
       </p>
       <p>
         4. Add into .bashrc:
-        <source>
+        <pre>
           GPG_TTY=$(tty)
           export GPG_TTY
-        </source>
+        </pre>
       </p>
       <p>
         GPG agent is automatically started on demand by GnuPG. That's all.
