@@ -5,7 +5,7 @@
 read -p "Really deploy to maven cetral repository  (yes/no)? "
 
 if ( [ "$REPLY" == "yes" ] ) then
-  ssh-add ~/git/demidenko05git
+  ssh-add ~/.ssh/demidenko05git
   ssh-add -l
   mvn release:clean release:prepare release:perform -B -e | tee maven-central-deploy.log
   ssh-add -D
