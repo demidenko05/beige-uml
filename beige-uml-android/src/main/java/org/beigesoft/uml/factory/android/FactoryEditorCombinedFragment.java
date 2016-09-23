@@ -43,7 +43,7 @@ public class FactoryEditorCombinedFragment implements IFactoryEditorElementUml<C
     if(asmEditorCombinedFragment == null) {
       EditorCombinedFragment<CombinedFragment, Activity, View> editor = 
           new EditorCombinedFragment<CombinedFragment, Activity, View>(activity, 
-              lazyGetSrvEditElementUml(), srvI18n.getMsg("state_invariant_plus"));
+              lazyGetSrvEditElementUml(), srvI18n.getMsg("CombinedFragment"));
       asmEditorCombinedFragment = new AsmEditorCombinedFragment<CombinedFragment, EditorCombinedFragment<CombinedFragment, Activity, View>>(activity,
           editor, AsmEditorCombinedFragment.class.getSimpleName());
       editor.addObserverModelChanged(observerCombinedFragmentUmlChanged);

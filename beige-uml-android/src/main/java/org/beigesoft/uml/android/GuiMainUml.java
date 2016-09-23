@@ -767,7 +767,7 @@ public class GuiMainUml
       try {
         getAsmProjectUml().restore();
       } catch (Exception e) {
-        getAsmProjectUml().setProjectUml(null);//TODO
+        getAsmProjectUml().setProjectUml(null); //TODO
         getGuiSrvs().getSrvDialog().errorMessage(getDialogInstrument(), e.getMessage(), "Error!");
         e.printStackTrace();
       }

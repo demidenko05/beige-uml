@@ -6,7 +6,11 @@
   <packaging>pom</packaging>
   
   <name>Beigesoft UML editor</name>  
-  <description>Graphic editor for UML 2.4.1 compliant class diagram, package diagram, object diagram, sequence diagram and use case diagram. Also, it is a doclet that can generates Javadoc with UML class diagrams.</description>
+  <description>
+    Graphic editor for UML 2.4.1 compliant class diagram, package diagram, object diagram,
+    sequence diagram and use case diagram. Also, it is a doclet that can generates Javadoc with UML class diagrams.
+  </description>
+  <url>http://www.beigesoft.org</url>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -115,7 +119,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.6</version>
+        <version>2.5</version>
       </plugin>
     </plugins>
   </reporting>
@@ -165,8 +169,6 @@
     </plugins>
   </build>
   
-  <url>http://www.beigesoft.org</url>
-  
   <organization>
     <name>Beigesoft ™</name>
     <url>http://www.beigesoft.org</url>
@@ -190,11 +192,6 @@
   </licenses>
   
   <distributionManagement>
-    <site>
-      <id>beigesoft</id>
-      <name>beigesoft</name>
-      <url>http://www.beigesoft.org</url>
-    </site>
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -206,19 +203,19 @@
   </distributionManagement>
   
   <scm>
+    <url>https://github.com/demidenko05/beige-uml.git</url>
     <connection>scm:git:git@github.com:demidenko05/beige-uml.git</connection>
     <developerConnection>scm:git:git@github.com:demidenko05/beige-uml.git</developerConnection>
-    <url>git@github.com:demidenko05/beige-uml.git</url>
     <tag>HEAD</tag>
   </scm>
 
   <modules>
-  	<module>beige-lib</module>
-  	<module>beige-uml-base</module>
-  	<module>beige-swing-lib</module>
-  	<module>beige-uml-swing</module>
-  	<module>beige-android-lib</module>
-  	<module>beige-uml-android</module>
+    <module>beige-lib</module>
+    <module>beige-uml-base</module>
+    <module>beige-swing-lib</module>
+    <module>beige-uml-swing</module>
+    <module>beige-android-lib</module>
+    <module>beige-uml-android</module>
   </modules>
   
 </project>

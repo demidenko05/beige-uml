@@ -108,6 +108,7 @@ public class EditorProject<M extends ProjectUml, DLI, AEI> extends AEditor<M, DL
     if(btSetDefault.isPushed(eventInstrument)) {
       getModelClone().getSettingsGraphicUml().setDefaultValues();
       refreshGuiGraphParam();      
+      cmbMeasureUnit.setSelectedItem(getModelClone().getSettingsGraphicUml().getMeasurementUnit());
       return true;
     }
     return false;

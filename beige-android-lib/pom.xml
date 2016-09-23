@@ -13,6 +13,22 @@
 
   <name>Beigesoft Android Library</name>
   <description>This library contains widgets: list chooser, tree chooser, implementations of graphic and UI(dialog) services etc.</description>
+  <url>http://www.beigesoft.org</url>
+
+  <developers>
+    <developer>
+      <id>demidenko05</id>
+      <name>Yury Demidenko</name>
+    </developer>
+  </developers>
+    
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
   <dependencies>
     <dependency>

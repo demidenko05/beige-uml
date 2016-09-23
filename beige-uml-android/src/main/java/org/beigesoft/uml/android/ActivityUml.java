@@ -1,10 +1,15 @@
 package org.beigesoft.uml.android;
 
+import java.lang.reflect.Method;
+
+import android.content.ContextWrapper;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.Manifest;
+import android.content.pm.PackageManager;
 
 import org.beigesoft.android.treechooser.FragmentNodes;
 import org.beigesoft.android.ui.widget.FileChooserAdaptor;
@@ -13,10 +18,40 @@ import org.beigesoft.uml.model.ECommands;
 public class ActivityUml extends Activity {
   //GUI:
   private GuiMainUml guiMainUml;
-  
+
+  /**
+   * <p>Permissions request.</p>
+   **/
+  public static final int PERMISSIONS_REQUESTS = 2425;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    //Only way to publish this project in central Maven repository
+    //cause missing Google dependencies:
+    if (android.os.Build.VERSION.SDK_INT >= 23) {
+      try {
+        Class[] argTypes = new Class[] {String.class};
+        Method checkSelfPermission = ContextWrapper.class
+          .getDeclaredMethod("checkSelfPermission", argTypes);
+        Object result = checkSelfPermission.invoke(getApplicationContext(),
+          Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        Integer chSlfPer = (Integer) result;
+        if (chSlfPer != PackageManager.PERMISSION_GRANTED) {
+          argTypes = new Class[] {String[].class, Integer.TYPE};
+          Method requestPermissions = Activity.class
+            .getDeclaredMethod("requestPermissions", argTypes);
+          String[] args = new String[]
+            {Manifest.permission.READ_EXTERNAL_STORAGE,
+              Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.INTERNET};
+          requestPermissions.invoke(this, (Object) args,
+            PERMISSIONS_REQUESTS);
+        }
+      } catch (Exception x) {
+          x.printStackTrace();
+      }
+    }
     System.setProperty("org.xml.sax.driver","org.xmlpull.v1.sax2.Driver");
     guiMainUml = new GuiMainUml(this);
     setContentView(R.layout.activity_uml);

@@ -13,7 +13,7 @@ import org.beigesoft.uml.assembly.IAsmElementUmlInteractive;
 import org.beigesoft.uml.factory.IFactoryAsmElementUml;
 import org.beigesoft.uml.pojo.CombinedFragment;
 import org.beigesoft.uml.service.graphic.SrvGraphicCombinedFragment;
-import org.beigesoft.uml.service.interactive.SrvInteractiveFragment;
+import org.beigesoft.uml.service.interactive.SrvInteractiveCombinedFragment;
 import org.beigesoft.uml.service.persist.xmllight.FileAndWriter;
 import org.beigesoft.uml.service.persist.xmllight.SrvPersistLightXmlCombinedFragment;
 
@@ -27,7 +27,7 @@ public class FactoryAsmCombinedFragment implements IFactoryAsmElementUml<IAsmEle
   
   private final SrvGraphicCombinedFragment<CombinedFragment, CanvasWithPaint, SettingsDraw> srvGraphicCombinedFragment;
   
-  private final SrvInteractiveFragment<CombinedFragment, CanvasWithPaint, SettingsDraw, Activity> srvInteractiveCombinedFragment;
+  private final SrvInteractiveCombinedFragment<CombinedFragment, CanvasWithPaint, SettingsDraw, Activity> srvInteractiveCombinedFragment;
   
   private final FactoryEditorCombinedFragment factoryEditorCombinedFragment;
   
@@ -37,7 +37,7 @@ public class FactoryAsmCombinedFragment implements IFactoryAsmElementUml<IAsmEle
     srvGraphicCombinedFragment = new SrvGraphicCombinedFragment<CombinedFragment, CanvasWithPaint, SettingsDraw>(srvDraw, settingsGraphic);
     srvPersistXmlCombinedFragment = new SrvPersistLightXmlCombinedFragment<CombinedFragment>();
     factoryEditorCombinedFragment = new FactoryEditorCombinedFragment(activity, containerGui);
-    srvInteractiveCombinedFragment = new SrvInteractiveFragment<CombinedFragment, CanvasWithPaint, SettingsDraw, Activity>(srvGraphicCombinedFragment, factoryEditorCombinedFragment);
+    srvInteractiveCombinedFragment = new SrvInteractiveCombinedFragment<CombinedFragment, CanvasWithPaint, SettingsDraw, Activity>(srvGraphicCombinedFragment, factoryEditorCombinedFragment);
   }
 
   @Override
@@ -73,7 +73,7 @@ public class FactoryAsmCombinedFragment implements IFactoryAsmElementUml<IAsmEle
     return srvGraphicCombinedFragment;
   }
 
-  public SrvInteractiveFragment<CombinedFragment, CanvasWithPaint, SettingsDraw, Activity> getSrvInteractiveCombinedFragment() {
+  public SrvInteractiveCombinedFragment<CombinedFragment, CanvasWithPaint, SettingsDraw, Activity> getSrvInteractiveCombinedFragment() {
     return srvInteractiveCombinedFragment;
   }
 }

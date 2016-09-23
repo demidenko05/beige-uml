@@ -1,0 +1,26 @@
+Android:
+adb push ~/Documents/DemoUml /sdcard/DemoUml
+android avd
+adb logcat
+mvn android:run
+mvn android:deploy
+mvn android:redeploy
+jarsigner -verify -verbose -certs beige-uml-android.apk
+./zipalign -v 4 beige-uml-android-nl.apk beige-uml-android.apk
+./aapt list -v -a beige-uml-android.apk
+mvn clean install -P sign -Dandroid.release=true -Dsignpass=******
+android-sdk-linux/tools$ adb shell
+generic_x86:/ $ su
+$ANDROID_HOME/tools/lint --html target/lint.html --sources src/main --classpath target .
+//fix AVD start error:
+emulator -avd Nexus_10_v7_2 -use-system-libs
+JDB:
+adb jdwp
+adb forward tcp:1044 jdwp:8823
+mvn exec:exec -Dexec.executable="java" -Dexec.args="-classpath %classpath -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1045 org.beigesoft.uml.app.swing.GuiMainUmlInteractive"
+jdb -attach localhost:1045 -sourcepath ~/git/beige-uml/beige-lib/src/main/java:~/git/beige-uml/beige-swing-lib/src/main/java:~/git/beige-uml/beige-uml-base/src/main/java:~/git/beige-uml/beige-uml-swing/src/main/java
+jdb -attach localhost:1044 -sourcepath ~/git/beige-uml/beige-lib/src/main/java:~/git/beige-uml/beige-android-lib/src/main/java:~/git/beige-uml/beige-uml-base/src/main/java:~/git/beige-uml/beige-uml-android/src/main/java
+stop at org.beigesoft.uml.service.interactive.SrvInteractiveCombinedFragment:27
+cont
+next
+eval ge.getTracesY()

@@ -13,6 +13,72 @@
 
   <name>Beigesoft Android based UML editor</name>
   <description>Android implementation of Beige UML</description>
+  <url>http://www.beigesoft.org</url>
+
+  <developers>
+    <developer>
+      <id>demidenko05</id>
+      <name>Yury Demidenko</name>
+    </developer>
+  </developers>
+    
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <profiles>
+    <profile>
+      <id>sign</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>signing</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <phase>package</phase>
+                <inherited>true</inherited>
+                <configuration>
+                  <archiveDirectory />
+                  <includes>
+                    <include>target/*.apk</include>
+                  </includes>
+                  <!--<keystore>path/to/keystore</keystore> default-->
+                  <storepass>${signpass}</storepass>
+                  <keypass>${signpass}</keypass>
+                  <alias>bsf-key</alias>
+                  <arguments>
+                    <argument>-sigalg</argument><argument>MD5withRSA</argument>
+                    <argument>-digestalg</argument><argument>SHA1</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.simpligility.maven.plugins</groupId>
+            <artifactId>android-maven-plugin</artifactId>
+            <version>4.3.0</version>
+            <inherited>true</inherited>
+            <configuration>
+                <sign>
+                    <debug>false</debug>
+                </sign>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
   <dependencies>
     <dependency>

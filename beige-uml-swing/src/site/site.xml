@@ -5,9 +5,9 @@
   <skin>
    <groupId>org.beigesoft</groupId>
    <artifactId>beige-maven-skin</artifactId>
-   <version>1.0.0</version>
+   <version>1.0.1</version>
   </skin>
     <body>
-	<menu ref="reports" />
+      <menu ref="reports" />
     </body>
 </project>
