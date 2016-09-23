@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.beigesoft</groupId>
     <artifactId>beige-uml</artifactId>
-    <version>2.1.10-SNAPSHOT</version>
+    <version>2.1.10</version>
   </parent>
   <artifactId>beige-uml-base</artifactId>
   
@@ -32,7 +32,7 @@
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-lib</artifactId>
-      <version>2.1.10-SNAPSHOT</version>
+      <version>2.1.10</version>
     </dependency>
   </dependencies>
   

@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.beigesoft</groupId>
     <artifactId>beige-uml</artifactId>
-    <version>2.1.10-SNAPSHOT</version>
+    <version>2.1.10</version>
   </parent>
   <artifactId>beige-uml-swing</artifactId>
   
@@ -31,12 +31,12 @@
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-uml-base</artifactId>
-      <version>2.1.10-SNAPSHOT</version>
+      <version>2.1.10</version>
     </dependency>
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-swing-lib</artifactId>
-      <version>2.1.10-SNAPSHOT</version>
+      <version>2.1.10</version>
     </dependency>
   </dependencies>
 
