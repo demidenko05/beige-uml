@@ -1,0 +1,3 @@
+stop at org.beigesoft.uml.service.edit.SrvEditInstanceFull:20
+
+print (o1.getShape().getStructure() == null ? o2.getShape().getStructure() != null : !o1.getShape().getStructure().equals(o2.getShape().getStructure()))

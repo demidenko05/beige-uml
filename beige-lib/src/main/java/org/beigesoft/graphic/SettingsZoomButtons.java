@@ -1,18 +1,16 @@
 package org.beigesoft.graphic;
 
-import java.io.File;
-
 public class SettingsZoomButtons {
   
   private int size = 24;
   
   private int padding = 3;
   
-  private String pathZoomIn = File.separator+"img"+File.separator+"zoom_in.png";
+  private String pathZoomIn = "/img/zoom_in.png";
 
-  private String pathZoomOut = File.separator+"img"+File.separator+"zoom_out.png";
+  private String pathZoomOut = "/img/zoom_out.png";
 
-  private String pathZoom11 = File.separator+"img"+File.separator+"zoom_11.png";
+  private String pathZoom11 = "/img/zoom_11.png";
 
   public int getSize() {
     return size;

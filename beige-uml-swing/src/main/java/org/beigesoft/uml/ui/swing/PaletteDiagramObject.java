@@ -3,7 +3,6 @@ package org.beigesoft.uml.ui.swing;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
@@ -43,7 +42,7 @@ public class PaletteDiagramObject extends JToolBar implements IPaletteMenu, Acti
     setRollover(true);
     ButtonGroup group = new ButtonGroup();
     double width = 0;
-    java.net.URL imgURL = getClass().getResource(File.separator+"img"+File.separator+"Select.png");
+    java.net.URL imgURL = getClass().getResource("/img/Select.png");
     Icon icon = new ImageIcon(imgURL);
     buttonSelect = new JToggleButton(ECommands.SELECT.toString());
     buttonSelect.setSelected(true);
@@ -66,7 +65,7 @@ public class PaletteDiagramObject extends JToolBar implements IPaletteMenu, Acti
     buttonComment.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonComment);
     width = Math.max(width, buttonComment.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Frame.png");
+    imgURL = getClass().getResource("/img/Frame.png");
     icon = new ImageIcon(imgURL);
     buttonFrame = new JToggleButton(ECommands.FRAME.toString());
     buttonFrame.addActionListener(this);
@@ -75,7 +74,7 @@ public class PaletteDiagramObject extends JToolBar implements IPaletteMenu, Acti
     buttonFrame.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonFrame);
     width = Math.max(width, buttonFrame.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Rectangle.png");
+    imgURL = getClass().getResource("/img/Rectangle.png");
     icon = new ImageIcon(imgURL);
     buttonRectangle = new JToggleButton(ECommands.RECTANGLE.toString());
     buttonRectangle.addActionListener(this);
@@ -95,7 +94,7 @@ public class PaletteDiagramObject extends JToolBar implements IPaletteMenu, Acti
     buttonText.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonText);
     width = Math.max(width, buttonText.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"AssociationSimple.png");
+    imgURL = getClass().getResource("/img/AssociationSimple.png");
     icon = new ImageIcon(imgURL);
     buttonAssociation = new JToggleButton(ECommands.ASSOCIATION_SIMPLE.toString());
     buttonAssociation.setFocusPainted(false);

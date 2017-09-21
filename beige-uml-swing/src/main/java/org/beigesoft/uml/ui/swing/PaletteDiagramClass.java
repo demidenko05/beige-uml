@@ -3,7 +3,6 @@ package org.beigesoft.uml.ui.swing;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
@@ -61,7 +60,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     setRollover(true);
     ButtonGroup group = new ButtonGroup();
     double width = 0;
-    java.net.URL imgURL = getClass().getResource(File.separator+"img"+File.separator+"Select.png");
+    java.net.URL imgURL = getClass().getResource("/img/Select.png");
     Icon icon = new ImageIcon(imgURL);
     buttonSelect = new JToggleButton(ECommands.SELECT.toString());
     buttonSelect.setSelected(true);
@@ -96,7 +95,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonComment.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonComment);
     width = Math.max(width, buttonComment.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Frame.png");
+    imgURL = getClass().getResource("/img/Frame.png");
     icon = new ImageIcon(imgURL);
     buttonFrame = new JToggleButton(ECommands.FRAME.toString());
     buttonFrame.addActionListener(this);
@@ -105,7 +104,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonFrame.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonFrame);
     width = Math.max(width, buttonFrame.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Rectangle.png");
+    imgURL = getClass().getResource("/img/Rectangle.png");
     icon = new ImageIcon(imgURL);
     buttonRectangle = new JToggleButton(ECommands.RECTANGLE.toString());
     buttonRectangle.addActionListener(this);
@@ -126,7 +125,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonText.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonText);
     width = Math.max(width, buttonText.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Generalization.png");
+    imgURL = getClass().getResource("/img/Generalization.png");
     icon = new ImageIcon(imgURL);
     buttonGeneralization = new JToggleButton(ECommands.GENERALIZATION.toString());
     buttonGeneralization.setFocusPainted(false);
@@ -135,7 +134,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonGeneralization.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonGeneralization);
     width = Math.max(width, buttonGeneralization.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Realization.png");
+    imgURL = getClass().getResource("/img/Realization.png");
     icon = new ImageIcon(imgURL);
     buttonRealization = new JToggleButton(ECommands.REALIZATION.toString());
     buttonRealization.setFocusPainted(false);
@@ -144,7 +143,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonRealization.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonRealization);
     width = Math.max(width, buttonRealization.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Association.png");
+    imgURL = getClass().getResource("/img/Association.png");
     icon = new ImageIcon(imgURL);
     buttonAssociation = new JToggleButton(ECommands.ASSOCIATION.toString());
     buttonAssociation.setFocusPainted(false);
@@ -153,7 +152,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonAssociation.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonAssociation);
     width = Math.max(width, buttonAssociation.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"AssociationSelf.png");
+    imgURL = getClass().getResource("/img/AssociationSelf.png");
     icon = new ImageIcon(imgURL);
     buttonAssociationSelf = new JToggleButton(ECommands.RELATIONSHIP_SELF.toString());
     buttonAssociationSelf.setFocusPainted(false);
@@ -162,7 +161,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonAssociationSelf.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonAssociationSelf);
     width = Math.max(width, buttonAssociationSelf.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"AssociationPoly.png");
+    imgURL = getClass().getResource("/img/AssociationPoly.png");
     icon = new ImageIcon(imgURL);
     buttonAssociationPoly = new JToggleButton(ECommands.RELATIONSHIP_POLY.toString());
     buttonAssociationPoly.setFocusPainted(false);
@@ -171,7 +170,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonAssociationPoly.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonAssociationPoly);
     width = Math.max(width, buttonAssociationPoly.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Aggregation.png");
+    imgURL = getClass().getResource("/img/Aggregation.png");
     icon = new ImageIcon(imgURL);
     buttonAggregation = new JToggleButton(ECommands.AGGREGATION.toString());
     buttonAggregation.setFocusPainted(false);
@@ -180,7 +179,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonAggregation.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonAggregation);
     width = Math.max(width, buttonRealization.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Composition.png");
+    imgURL = getClass().getResource("/img/Composition.png");
     icon = new ImageIcon(imgURL);
     buttonComposition = new JToggleButton(ECommands.COMPOSITION.toString());
     buttonComposition.setFocusPainted(false);
@@ -189,7 +188,7 @@ public class PaletteDiagramClass extends JToolBar implements IPaletteMenu, Actio
     buttonComposition.setHorizontalAlignment(SwingConstants.LEFT);
     group.add(buttonComposition);
     width = Math.max(width, buttonComposition.getPreferredSize().getWidth());
-    imgURL = getClass().getResource(File.separator+"img"+File.separator+"Dependency.png");
+    imgURL = getClass().getResource("/img/Dependency.png");
     icon = new ImageIcon(imgURL);
     buttonDependency = new JToggleButton(ECommands.DEPENDENCY.toString());
     buttonDependency.setFocusPainted(false);

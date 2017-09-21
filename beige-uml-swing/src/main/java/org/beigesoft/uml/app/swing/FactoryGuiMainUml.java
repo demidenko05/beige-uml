@@ -12,7 +12,6 @@ package org.beigesoft.uml.app.swing;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -59,7 +58,7 @@ public class FactoryGuiMainUml {
     SrvPaneDrawing<Graphics2D, SettingsDraw, Image> srvPaneDrawing = new SrvPaneDrawing<Graphics2D, SettingsDraw, Image>(srvDraw);
     paneDrawing = new PaneDrawingSwing(srvPaneDrawing);
     frameMain = new JFrame();
-    URL iconURL = getClass().getResource(File.separator + "img" + File.separator + "favicon.png");
+    URL iconURL = getClass().getResource("/img/favicon.png");
     ImageIcon icon = new ImageIcon(iconURL);
     frameMain.setIconImage(icon.getImage());
     SaxProjectUmlFiller<ProjectUml> saxProjectUmlReader = new SaxProjectUmlFiller<ProjectUml>(SrvPersistLightXmlProjectUml.NAMEXML_PROJECTDESCRIPTOR, new ArrayList<String>());

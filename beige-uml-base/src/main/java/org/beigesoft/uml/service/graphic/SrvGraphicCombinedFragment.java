@@ -49,7 +49,7 @@ public class SrvGraphicCombinedFragment<M extends CombinedFragment, DRI, SD exte
       getSrvDraw().drawLine(di, ds, ge.getPointStart().getX(), y, ge.getPointStart().getX() + ge.getWidth(), y);
       if(ge.getIsSelected()) {
         getSrvDraw().drawRectangle(di, ds,
-        ge.getPointStart().getX() + ge.getWidth()/1.5 - widthDragRectangle*2, 
+        ge.getPointStart().getX() + ge.getWidth() - widthDragRectangle*2, 
         y - widthDragRectangle/2, widthDragRectangle,
         widthDragRectangle, false);
       }

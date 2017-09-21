@@ -76,7 +76,18 @@ public class PaneProjectLight extends JTree implements IPaneProjectUml {
     this.guiSrvs = editProjectUmlSrv;
     this.frameMain = frame;
     this.guiMain = guiMain;
-    fileChooser = new JFileChooser();
+    String currDir = null;
+    try {
+      currDir = PaneProjectLight.class.getProtectionDomain()
+        .getCodeSource().getLocation().toURI().getPath();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    if (currDir != null) {
+      fileChooser = new JFileChooser(currDir);
+    } else {
+      fileChooser = new JFileChooser();
+    }
     IFilterFileWithChooseMode filterAnyDirectory = new FilterFileIsDirectoryAndChooseModeAdapter();
     IFilterFileWithChooseMode filterJarOrWar = new FilterFileExtentionIsAndChooseModeAdapter(new String[]{"jar", "war"});
     EditorProject<ProjectUml, Frame, ActionEvent> editorProject = new EditorProject<ProjectUml, Frame, ActionEvent>(frame, 
@@ -123,7 +134,8 @@ public class PaneProjectLight extends JTree implements IPaneProjectUml {
       return;
     }
     String projectName = projectPath.substring(projectPath.lastIndexOf(File.separatorChar) + 1);
-    String pathPre = projectPath.replace(File.separator + projectName, "");
+    int idxPn = projectPath.lastIndexOf(projectName);
+    String pathPre = projectPath.substring(0, idxPn - 1);
     ProjectUml anotherProject = new ProjectUml(guiMain.getSettingsGraphicUml(), 
         pathPre, projectName);
     guiMain.getAsmProjectUml().setProjectUml(anotherProject);
@@ -238,11 +250,20 @@ public class PaneProjectLight extends JTree implements IPaneProjectUml {
 
   protected void addTreeNodes(File file) {
     URI uri;
+    String uriStr = null;
     try {
-      uri = new URI("file:"+guiMain.getAsmProjectUml().getProjectUml().getProjectPath());
+      String projPath = guiMain.getAsmProjectUml()
+        .getProjectUml().getProjectPath();
+      if (projPath.contains("\\")) {
+        uriStr = "file:/" + projPath.replace('\\', '/');
+      } else {
+        uriStr = "file:" + projPath;
+      }
+      uri = new URI(uriStr);
       File dir = new File(uri);
       addToTreeNode(dir, rootNode, file);
     } catch (Exception e) {
+      System.out.println(uriStr);
       e.printStackTrace();
     }    
   }

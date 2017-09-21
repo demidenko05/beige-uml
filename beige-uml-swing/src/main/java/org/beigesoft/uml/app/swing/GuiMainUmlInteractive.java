@@ -107,7 +107,7 @@ public class GuiMainUmlInteractive
     getFrameMain().setJMenuBar(mainMenu);
     getFrameMain().setPreferredSize(new Dimension(getSettingsGraphicUml().getScreenWidthPixels()/4*3,
         getSettingsGraphicUml().getScreenHeightPixels()/4*3));
-    URL iconURL = getClass().getResource(File.separator+"img"+File.separator+"favicon.png");
+    URL iconURL = getClass().getResource("/img/favicon.png");
     ImageIcon icon = new ImageIcon(iconURL);
     getFrameMain().setIconImage(icon.getImage());
     getFrameMain().setTitle(getGuiSrvs().getSrvI18n().getMsg("title"));

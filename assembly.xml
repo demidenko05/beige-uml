@@ -13,12 +13,14 @@
   
   <fileSets>
     <fileSet>
+      <useDefaultExcludes>false</useDefaultExcludes>
       <includes>
-        <include>/src/**</include>
+        <include>**/src/**</include>
         <include>/.gitignore</include>
-        <include>/readme.txt</include>
-        <include>/license.txt</include>
-        <include>/pom.xml</include>
+        <include>**/README.txt</include>
+        <include>/LICENSE</include>
+        <include>/maven-central-deploy.sh</include>
+        <include>**/pom.xml</include>
         <include>/assembly.xml</include>
       </includes>
       <excludes>
@@ -26,36 +28,5 @@
       </excludes>
     </fileSet>
   </fileSets>
-  
-  <moduleSets>
-    <moduleSet>
-      <includes>
-        <include>org.beigesoft:beige-lib</include>
-        <include>org.beigesoft:beige-android-lib</include>
-        <include>org.beigesoft:beige-swing-lib</include>
-        <include>org.beigesoft:beige-uml-base</include>
-        <include>org.beigesoft:beige-uml-swing</include>
-        <include>org.beigesoft:beige-uml-android</include>
-      </includes>
-      <sources>
-        <fileSets>
-          <fileSet>
-            <excludes>
-              <exclude>**/src/uml/**</exclude>
-              <exclude>target/**</exclude>
-              <exclude>gwt-unitCache/**</exclude>
-              <exclude>WebContent/**</exclude>
-              <exclude>.settings/**</exclude>
-              <exclude>.classpath</exclude>
-              <exclude>.project</exclude>
-              <exclude>**/*.jasper</exclude>
-              <exclude>**/jquery/**</exclude>
-              <exclude>**/trash/**</exclude>
-            </excludes>
-          </fileSet>
-        </fileSets>
-      </sources>
-    </moduleSet>
-  </moduleSets>
   
 </assembly>

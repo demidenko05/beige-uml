@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.beigesoft</groupId>
   <artifactId>beige-uml</artifactId>
-  <version>2.1.11-SNAPSHOT</version>
+  <version>2.1.10-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <name>Beigesoft UML editor</name>  
@@ -81,13 +81,6 @@
   
   <dependencies>
     <dependency>
-      <groupId>com.sun</groupId>
-      <artifactId>tools</artifactId>
-      <version>1.6</version>
-      <scope>system</scope>
-      <systemPath>${tools-path}</systemPath>
-    </dependency>
-    <dependency>
      <groupId>junit</groupId>
      <artifactId>junit</artifactId>
      <version>4.10</version>
@@ -148,7 +141,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.4</version>
+        <version>3.0.0</version>
         <inherited>false</inherited>
         <configuration>
           <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>

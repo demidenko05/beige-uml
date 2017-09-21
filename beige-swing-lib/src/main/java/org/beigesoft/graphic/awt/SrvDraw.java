@@ -62,10 +62,12 @@ public class SrvDraw extends ASrvDraw<Graphics2D, SettingsDraw, Image> {
     }
     if(drawSettings.getPathBackgroundImage() != null) {
       try {
-        BufferedImage bimg = ImageIO.read(getClass().getResource(File.separator + drawSettings.getPathBackgroundImage()));
+        String strUrl = "/" + drawSettings.getPathBackgroundImage();
+        BufferedImage bimg = ImageIO.read(getClass().getResource(strUrl));
         TexturePaint texPaint = new TexturePaint(bimg, new Rectangle(0, 0, bimg.getWidth(), bimg.getHeight()));
         itd.setPaint(texPaint);
       } catch (IOException e) {
+        System.out.println("BG image:" + drawSettings.getPathBackgroundImage());
         e.printStackTrace();
       }
     }

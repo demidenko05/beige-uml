@@ -4,39 +4,30 @@
   <parent>
     <groupId>org.beigesoft</groupId>
     <artifactId>beige-uml</artifactId>
-    <version>2.1.11-SNAPSHOT</version>
+    <version>2.1.10-SNAPSHOT</version>
   </parent>
   <artifactId>beige-uml-swing</artifactId>
   
   <name>Beigesoft Swing based UML editor</name>
   <description>Swing implementation of Beige UML</description>
-  <url>http://www.beigesoft.org</url>
-
-  <developers>
-    <developer>
-      <id>demidenko05</id>
-      <name>Yury Demidenko</name>
-    </developer>
-  </developers>
-    
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
 
   <dependencies>
     <dependency>
-      <groupId>org.beigesoft</groupId>
-      <artifactId>beige-uml-base</artifactId>
-      <version>2.1.11-SNAPSHOT</version>
+      <groupId>com.sun</groupId>
+      <artifactId>tools</artifactId>
+      <version>1.6</version>
+      <scope>system</scope>
+      <systemPath>${tools-path}</systemPath>
     </dependency>
     <dependency>
       <groupId>org.beigesoft</groupId>
-      <artifactId>beige-swing-lib</artifactId>
-      <version>2.1.11-SNAPSHOT</version>
+      <artifactId>beige-uml-base</artifactId>
+      <version>2.1.10-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.beigesoft</groupId>
+    	<artifactId>beige-swing-lib</artifactId>
+    	<version>2.1.10-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

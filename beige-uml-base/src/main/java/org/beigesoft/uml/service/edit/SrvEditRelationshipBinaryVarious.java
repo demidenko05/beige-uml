@@ -25,15 +25,6 @@ public class SrvEditRelationshipBinaryVarious<M extends RelationshipBinaryVariou
     if(m1.getShapeRelationshipStart().getEndType() != m2.getShapeRelationshipStart().getEndType()) {
       return false;
     }
-    if(m1.getShapeRelationshipEnd().getEndType() != m2.getShapeRelationshipEnd().getEndType()) {
-      return false;
-    }
-    if(m1.getShapeRelationshipEnd().getIsOwned() != m2.getShapeRelationshipEnd().getIsOwned()) {
-      return false;
-    }
-    if(m1.getShapeRelationshipStart().getIsOwned() != m2.getShapeRelationshipStart().getIsOwned()) {
-      return false;
-    }
     if(m1.getShapeRelationshipStart().getShapeFull() == null ? m2.getShapeRelationshipStart().getShapeFull() != null : 
       !m1.getShapeRelationshipStart().getShapeFull().getId().equals(m2.getShapeRelationshipStart().getShapeFull().getId())) {
       return false;

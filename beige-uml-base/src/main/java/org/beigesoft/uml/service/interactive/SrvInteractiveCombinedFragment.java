@@ -26,7 +26,7 @@ public class SrvInteractiveCombinedFragment<SH extends CombinedFragment, DRI, SD
       for(int i=0; i<ge.getTracesY().size(); i++) {
         double y = ge.getPointStart().getY() + ge.getTracesY().get(i);
         if(UtilsGraphMath.dragRentangleContainsOf(getSrvGraphicShape().getSettingsGraphic(), 
-            new Point2D(ge.getPointStart().getX() + ge.getWidth()/1.5 - widthDragRectangle*1.5, 
+            new Point2D(ge.getPointStart().getX() + ge.getWidth() - widthDragRectangle*1.5, 
                 y), screenWasX, screenWasY)) {
           if(ge.getTracesY().get(i) + deltaY > 0 &&
               ge.getTracesY().get(i) + deltaY < ge.getHeight()) {

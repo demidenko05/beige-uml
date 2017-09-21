@@ -71,7 +71,6 @@ public class AsmEditorProject<M extends ProjectUml, EDT extends EditorProject<M,
     super(frame, editor);
   }
 
-  @Override
   public void actionPerformed(ActionEvent e) {
     if(e.getSource() == cmbMeasureUnit) {
       editor.handleComboboxMesuramentUnitChanged();      

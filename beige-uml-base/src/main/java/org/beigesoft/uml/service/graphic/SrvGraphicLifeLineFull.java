@@ -1,7 +1,5 @@
 package org.beigesoft.uml.service.graphic;
 
-import java.io.File;
-
 import org.beigesoft.graphic.model.ISettingsDraw;
 import org.beigesoft.graphic.service.ISrvDraw;
 import org.beigesoft.uml.app.model.SettingsGraphicUml;
@@ -50,7 +48,7 @@ public class SrvGraphicLifeLineFull<M extends LifeLineFull<ShapeUmlWithName>, DR
     }
     double execX1 = ge.getPointStart().getX() + ge.getWidth()/2 - getSettingsGraphic().getWidthExecution()/2;
     if(ge.getExecutions().size() > 0) {
-      ds.setPathBackgroundImage("img"+File.separator+"bg-dot-gray.png");
+      ds.setPathBackgroundImage("img/bg-dot-gray.png");
       getSrvDraw().preparePaint(di, ds);
     }
     for(Execution exec : ge.getExecutions()) {

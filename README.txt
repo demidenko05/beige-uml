@@ -7,3 +7,7 @@ Features:
 * Supports UML 2.4.1 compliant class diagram, package diagram, object diagram, sequence diagram and use case diagram.
 * It generates UML class diagram from Java source.
 * It's a doclet that generates standard Javadoc with UML class diagram.
+
+
+16 Aug 2017
+Fixed file URI bug that arises on MS Windows.

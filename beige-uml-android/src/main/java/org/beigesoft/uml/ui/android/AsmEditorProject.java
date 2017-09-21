@@ -17,16 +17,13 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class AsmEditorProject<M extends ProjectUml, EDT extends EditorProject<M, Activity, View>>
-  extends AAsmEditor<M, EDT> implements OnItemSelectedListener {
+public class AsmEditorProject<M extends ProjectUml, EDT extends EditorProject<M, Activity, View>> extends AAsmEditor<M, EDT> {
 
   protected Button btSetDefault;
   
@@ -106,7 +103,6 @@ public class AsmEditorProject<M extends ProjectUml, EDT extends EditorProject<M,
     cmbAdapter.add(EMeasurementUnit.CENTIMETRE);
     cmbAdapter.add(EMeasurementUnit.INCH);
     cmbMeasureUnit.setAdapter(cmbAdapter);
-    cmbMeasureUnit.setOnItemSelectedListener(this);
     editor.setCmbMeasureUnit(new ComboBox<EMeasurementUnit>(cmbMeasureUnit));
     tfDiagramGap = (EditText) rootView.findViewById(R.id.tfDiagramGap);
     editor.setTfDiagramGap(new TextField(tfDiagramGap));
@@ -138,15 +134,5 @@ public class AsmEditorProject<M extends ProjectUml, EDT extends EditorProject<M,
     editor.setTfWidthComment(new TextField(tfWidthComment));
     tfWidthDragRectangle = (EditText) rootView.findViewById(R.id.tfWidthDragRectangle);
     editor.setTfWidthDragRectangle(new TextField(tfWidthDragRectangle));
-  }
-
-  @Override
-  public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
-    editor.handleComboboxMesuramentUnitChanged();      
-  }
-
-  @Override
-  public void onNothingSelected(AdapterView view) {
-    // nothing      
   }
 }
