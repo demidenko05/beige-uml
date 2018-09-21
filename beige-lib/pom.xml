@@ -11,5 +11,23 @@
   
   <name>Beigesoft common Java library.</name>
   <description>Beigesoft common Java library. It contains interfaces and other crossplatform logic (almost UI) e.g. interface to draw line, rectangle, widgets list and tree chooser, utils, etc.</description>
+  <url>https://sites.google.com/site/beigesoftware</url>
+
+  <inceptionYear>2016</inceptionYear>
+  
+  <developers>
+    <developer>
+      <id>demidenko05</id>
+      <name>Yury Demidenko</name>
+    </developer>
+  </developers>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>  
   
 </project>

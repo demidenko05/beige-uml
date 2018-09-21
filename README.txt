@@ -1,4 +1,4 @@
-site: https://www.beigesoft.org
+site: https://sites.google.com/site/beigesoftware
 
 Beige UML is an UML diagram editor. It has two user interfaces - ordinary desktop SWING and Android.
 
@@ -8,6 +8,9 @@ Features:
 * It generates UML class diagram from Java source.
 * It's a doclet that generates standard Javadoc with UML class diagram.
 
-
-16 Aug 2017
-Fixed file URI bug that arises on MS Windows.
+V-2.10.10
+Android:
+*removed unneeded jars (javadoc)
+*new target SDK26
+All:
+Fixed file URI multi-platform separators.

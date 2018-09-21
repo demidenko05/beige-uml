@@ -10,12 +10,12 @@
     Graphic editor for UML 2.4.1 compliant class diagram, package diagram, object diagram,
     sequence diagram and use case diagram. Also, it is a doclet that can generates Javadoc with UML class diagrams.
   </description>
-  <url>http://www.beigesoft.org</url>
+  <url>https://sites.google.com/site/beigesoftware</url>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.6</java.version>
-    <tools-path>${java.home}/../lib/tools.jar</tools-path>
+    <tools-path>${java.home}${file.separator}..${file.separator}lib${file.separator}tools.jar</tools-path>
   </properties>
   
   <profiles>
@@ -50,20 +50,93 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>2.9.1</version>
+            <version>2.10.2</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
                 <goals>
                   <goal>jar</goal>
                 </goals>
+                <configuration>
+                  <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.simpligility.maven.plugins</groupId>
+            <artifactId>android-maven-plugin</artifactId>
+            <version>4.5.0</version>
+            <inherited>true</inherited>
+            <configuration>
+              <sign>
+                <debug>false</debug>
+              </sign>
+              <zipalign>
+                <verbose>true</verbose>
+                <inputApk>${project.build.directory}${file.separator}${project.artifactId}.apk</inputApk>
+                <outputApk>${project.build.directory}${file.separator}${project.artifactId}-sa.apk</outputApk>
+                <skip>false</skip>  
+              </zipalign>
+            </configuration>
+            <executions>
+              <execution>
+                <id>alignApk</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>zipalign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>  
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.7</version>
+            <executions>
+              <execution>
+                <id>remove-unaligned-apk</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <target>
+                    <delete file="${project.build.directory}${file.separator}${project.artifactId}.apk" />
+                  </target>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>signing</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <phase>package</phase>
+                <inherited>true</inherited>
+                <configuration>
+                  <archiveDirectory />
+                  <includes>
+                    <include>target${file.separator}*.apk</include>
+                    <include>target${file.separator}*.jar</include>
+                  </includes>
+                  <storepass>${signpass}</storepass>
+                  <keypass>${signpass}</keypass>
+                  <alias>${signalias}</alias>
+                </configuration>
               </execution>
             </executions>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
+            <version>1.6</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -71,6 +144,10 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+                <configuration>
+                  <keyname>${gpgkeyname}</keyname>
+                  <passphraseServerId>${gpgkeyname}</passphraseServerId>
+                </configuration>
               </execution>
             </executions>
           </plugin>
@@ -97,29 +174,28 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.3</version>
-        <configuration>
-          <doclet>org.beigesoft.uml.service.swing.CreatorDoclet</doclet>
-          <docletArtifact>
-            <groupId>org.beigesoft</groupId>
-            <artifactId>beige-uml-swing</artifactId>
-            <version>2.1.9</version>
-          </docletArtifact>
-          <useStandardDocletOptions>true</useStandardDocletOptions>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
         <version>2.5</version>
       </plugin>
     </plugins>
   </reporting>
-  
+
   <build>
     <finalName>${project.artifactId}</finalName>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <useFile>false</useFile>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -127,16 +203,16 @@
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
+          <compilerArgs>
+            <!--<arg>-verbose</arg>-->
+            <arg>-Xlint:all,-options,-path</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.3</version>
-        <configuration>
-          <useReleaseProfile>false</useReleaseProfile>
-          <arguments>-P release</arguments>
-         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -161,7 +237,7 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <organization>
     <name>Beigesoft ™</name>
     <url>http://www.beigesoft.org</url>

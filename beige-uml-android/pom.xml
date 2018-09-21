@@ -14,6 +14,25 @@
   <name>Beigesoft Android based UML editor</name>
   <description>Android implementation of Beige UML</description>
 
+  <url>https://sites.google.com/site/beigesoftware</url>
+
+  <inceptionYear>2016</inceptionYear>
+  
+  <developers>
+    <developer>
+      <id>demidenko05</id>
+      <name>Yury Demidenko</name>
+    </developer>
+  </developers>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>  
+
   <dependencies>
     <dependency>
       <groupId>com.google.android</groupId>
@@ -29,31 +48,36 @@
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-android-lib</artifactId>
-      <version>2.1.10-SNAPSHOT</version>
+      <version>${project.version}</version>
       <type>aar</type>
     </dependency>
     <dependency>
       <groupId>org.beigesoft</groupId>
       <artifactId>beige-uml-base</artifactId>
-      <version>2.1.10-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
   <build>
+    <finalName>${project.artifactId}</finalName>
     <plugins>
       <plugin>
         <groupId>com.simpligility.maven.plugins</groupId>
         <artifactId>android-maven-plugin</artifactId>
-        <version>4.3.0</version>
+        <version>4.5.0</version>
         <configuration>
           <run>
-            <debug>true</debug>
+            <debug>false</debug>
           </run>
           <sdk>
-            <platform>19</platform>
+            <platform>24</platform>
           </sdk>
           <undeployBeforeDeploy>true</undeployBeforeDeploy>
           <extractDuplicates>true</extractDuplicates>
+          <lint>
+            <skip>false</skip>
+            <classpath>${project.build.outputDirectory}</classpath>
+          </lint>
         </configuration>
         <extensions>true</extensions>
       </plugin>

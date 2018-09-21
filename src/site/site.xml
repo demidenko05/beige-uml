@@ -5,17 +5,12 @@
   <skin>
     <groupId>org.beigesoft</groupId>
     <artifactId>beige-maven-skin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
   </skin>
   <body>
     <menu ref="reports" />
     <menu name="Articles">
-      <item name="Getting started" href="gettingstartedgui.html" />
-      <item name="Use Beige UML in a Maven project" href="inmavenproject.html" />
-      <item name="Working with source code" href="workingwithsource.html" />
-      <item name="Use Debian Linux" href="debian1.html" />
-      <item name="Screenshots" href="screenshots.html" />
-      <item name="Fix Maven JXR 2.5 fo support generics" href="jxr26.html" />
+      <item name="Beige-UML getting started" href="gettingstartedgui.html" />
     </menu>
     <menu name="FAQ">
       <item name="General" href="faq.html" />
