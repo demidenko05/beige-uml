@@ -12,12 +12,14 @@
     <section name="Getting started">
 
       <h4>Creating UML diagram with Beige-UML SWING interface</h4>
-
+      
+      <p>*If you have projects with different unit of measurement and/or different settings (margins, etc), then close application and open it again before switching project.</p>
+      
       <p>1. Download latest release <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> from <a target="#blank" href="https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22beige-uml-swing%22">Central Maven Repository: search beige-uml-swing</a>. Then rename it to beige-uml.jar</p>
       <p>2. You should have Java SE Runtime Environment (JRE) version 6+ to run this application. 
        Otherwise install JRE for your operation system (see <a target="#blank" href="http://www.oracle.com/technetwork/java/javase/overview/index.html">oracle.com</a>)</p>
-      <p>3. Launch <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> (usually by right click from file explorer). To launch from command line execute: "java -jar beige-uml.jar". 
-      If fonts appear ugly then use java option "-Dawt.useSystemAAFontSettings=gasp" to use OS fonts, i.e. launch: "java -jar -Dawt.useSystemAAFontSettings=gasp beige-uml.jar" </p>
+      <p>3. Launch <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> (usually by right click from file explorer). To launch from command line execute: "java -jar beige-uml-swing-jar-with-dependencies.jar". 
+      If fonts appear ugly then use java option "-Dawt.useSystemAAFontSettings=gasp" to use OS fonts, i.e. launch: "java -jar -Dawt.useSystemAAFontSettings=gasp beige-uml-swing-jar-with-dependencies.jar" </p>
       <p>4. In menu click <b>create new project</b>. Complete project properties, e.g. project name set to "MyUml" and choose path to project (parent folder):
       </p>
       <p align="center"><img style="max-width: 100%" alt="New project" src="include/newproject.png" /></p>
@@ -47,9 +49,9 @@
       </p>
       <p align="center"><img style="max-width: 100%" alt="Result" src="include/result.png" /></p>
       
+      <p>*if you have problem with moving relationship end, then increase "width drag rectangle" in project settings</p>
       <h4>Using Beige-UML in a Maven project.</h4>
-      <p>The best way is use BeigeUML in a Maven project. If you do not prefer Maven see <a href="faq.html">FAQ</a> 
-      how to use beige-uml.jar to generate javadoc from command line.</p>
+      <p>The best way is use BeigeUML in a Maven project.</p>
       
       <p>
       Make following steps to do it:
@@ -71,7 +73,7 @@ mvn -B archetype:generate \
     &lt;plugin&gt;
       &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
       &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
-      &lt;version&gt;2.10.3&lt;/version&gt;
+      &lt;version&gt;2.10.2&lt;/version&gt;
       &lt;configuration&gt;
         &lt;doclet&gt;org.beigesoft.uml.service.swing.CreatorDoclet&lt;/doclet&gt;
         &lt;docletArtifact&gt;
@@ -87,18 +89,19 @@ mvn -B archetype:generate \
           </pre>
           Install your Maven project from command line "mvn install", then create Maven site by run "mvn site:site".
           Maven site will be in folder "target", UML project will be in folder "src/uml". 
-          You can launch <b>beige-uml.jar</b> and make some changes on diagram (see <a href="gettingstartedgui.html">getting started</a>), then recreate site again.
+          You can launch <b>beige-uml-swing-jar-with-dependencies.jar</b> and make some changes on diagram, then recreate site again.
         </li>
       </ol>
 
 <h4>Using Beige-UML to generate javadoc from command line</h4>
 <p>
-Assume your source path is "/home/java/MyProj1/src" and packages start with "org", and you put beige-uml.jar into "/home/java/util". To generate Javadoc in "/home/javadoc"  and project UML in "/home/javadocuml" execute this command:
+Assume your source path is "/home/java/MyProj1/src" and packages start with "org", and you put beige-uml-swing-jar-with-dependencies.jar into "/home/java/util". To generate Javadoc in "/home/javadoc"  and project UML in "/home/javadocuml" execute this command:
 <pre style="white-space: pre-wrap;">
-javadoc -d /home/javadoc -doclet org.beigesoft.uml.service.swing.CreatorDoclet -docletpath /home/java/util/beige-uml.jar -umlprojectpath /home/javadocuml -sourcepath /home/java/MyProj1/src -subpackages org
+javadoc -d /home/javadoc -doclet org.beigesoft.uml.service.swing.CreatorDoclet -docletpath /home/java/util/beige-uml-swing-jar-with-dependencies.jar -umlprojectpath /home/javadocuml -sourcepath /home/java/MyProj1/src -subpackages org
 </pre>
-Then launch beige-uml.jar and open UML project "/home/javadocuml" then make manually changes on diagrams you want. Then again launch javadoc.
+Then launch beige-uml-swing-jar-with-dependencies.jar and open UML project "/home/javadocuml" then make manually changes on diagrams you want. Then again launch javadoc.
 </p>
+<p>*JDK8 and last beige-uml-swing-jar-with-dependencies.jar give out of memory error on huge projects.</p>
 
     <h4>Beige-UML screenshots</h4>
 
@@ -139,22 +142,17 @@ Then launch beige-uml.jar and open UML project "/home/javadocuml" then make manu
       <p align="center">Package diagram demo:</p>
       <p align="center"><img style="max-width: 100%" src="include/androidpackage1.png" /></p>
   
-      <p align="center">Object diagram demo:</p>
-      <p align="center"><img style="max-width: 100%" src="include/androidobject1.png" /></p>
-  
       <p align="center">Use-case diagram demo:</p>
       <p align="center"><img style="max-width: 100%" src="include/androidusecase1.png" /></p>
   
       <p align="center">Sequence diagram demo:</p>
       <p align="center"><img style="max-width: 100%" src="include/android-sdexec.png" /></p>
+      <p align="center"><img style="max-width: 100%" src="include/androidobject1.png" /></p>
             
       <p align="center">Edit class sample:</p>
       <p align="center"><img style="max-width: 100%" src="include/androideditclass1.png" /></p>
   
       <h4 align="center">Android file-chooser screenshots:</h4>
-  
-      <p align="center">Open UML project(filter="bs-uml.xml"):</p>
-      <p align="center"><img style="max-width: 100%" src="include/androidfilechooser1.png" /></p>
   
       <p align="center">Choose diagram file in current project:</p>
       <p align="center"><img style="max-width: 100%" src="include/androidfilechooser2.png" /></p>

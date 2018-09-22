@@ -110,6 +110,7 @@ public class AsmDiagramUml<DUML extends DiagramUml, AEU extends IAsmElementUml<?
   public void newDiagramUml(PRI pi) {
     clearContent();
     setPersistInstrument(pi);
+    diagramUml.setMeasurementUnit(holderApp.getSettingsGraphicUml().getMeasurementUnit());
   }
 
   @Override

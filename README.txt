@@ -13,4 +13,5 @@ Android:
 *removed unneeded jars (javadoc)
 *new target SDK26
 All:
-Fixed file URI multi-platform separators.
+*Fixed file URI multi-platform separators.
+*Fixed creating diagram in centimeters.
