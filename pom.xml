@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.beigesoft</groupId>
   <artifactId>beige-uml</artifactId>
-  <version>2.1.11-SNAPSHOT</version>
+  <version>2.1.11</version>
   <packaging>pom</packaging>
   
   <name>Beigesoft UML editor</name>  
@@ -279,7 +279,7 @@
     <url>https://github.com/demidenko05/beige-uml.git</url>
     <connection>scm:git:git@github.com:demidenko05/beige-uml.git</connection>
     <developerConnection>scm:git:git@github.com:demidenko05/beige-uml.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>beige-uml-2.1.11</tag>
   </scm>
 
   <modules>
