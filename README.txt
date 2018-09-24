@@ -8,10 +8,14 @@ Features:
 * It generates UML class diagram from Java source.
 * It's a doclet that generates standard Javadoc with UML class diagram.
 
-V-2.10.10
+V-2.1.11
 Android:
+*fixed new project's path for saving diagram
 *removed unneeded jars (javadoc)
 *new target SDK26
-All:
+!save data on screen rotation not yet implemented! So switch rotation off during work.
+!when you change project's unit of measurement, then you should change all other parameters - gaps, margins, etc.
+All versions:
 *Fixed file URI multi-platform separators.
 *Fixed creating diagram in centimeters.
+*Zoom and offset are set to defaults on open/new diagram.

@@ -45,6 +45,7 @@ public class AsmDiagramUml<DUML extends DiagramUml, AEU extends IAsmElementUml<?
       }
       holderList.getListElementsUml().clear();
     }
+    this.holderApp.getSrvZoom().makeZoom11(this.holderApp.getSettingsGraphicUml());
   }
   
   @Override
@@ -61,9 +62,9 @@ public class AsmDiagramUml<DUML extends DiagramUml, AEU extends IAsmElementUml<?
   
   @Override
   public void handleModelChanged(SettingsGraphicUml model) {
-    if(diagramUml.getMeasurementUnit() != model.getMeasurementUnit()) {
+    if(!diagramUml.getMeasurementUnit().equals(model.getMeasurementUnit())) {
       double coef;
-      if(diagramUml.getMeasurementUnit() == EMeasurementUnit.INCH) {
+      if(diagramUml.getMeasurementUnit().equals(EMeasurementUnit.INCH)) {
         coef = SettingsGraphic.CENTEMETERS_IN_INCH;
       }
       else {

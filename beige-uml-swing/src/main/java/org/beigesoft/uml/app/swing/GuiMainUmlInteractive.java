@@ -224,6 +224,9 @@ public class GuiMainUmlInteractive
     return factoryGuiMain.getPaneDrawing();
   }
 
+  /**
+   * <p>There is only settings graphics.</p>
+   **/
   @Override
   public SettingsGraphicUml getSettingsGraphicUml() {
     return factoryGuiMain.getSettingsGraphicUml();

@@ -176,7 +176,7 @@ public class SettingsGraphicUml extends SettingsGraphic implements Cloneable {
     minMarginTopAttributes = fromInchToCurrentMeasure(0.01);
     maxMarginTopAttributes = fromInchToCurrentMeasure(0.07);
     minWidthDragRectangle = fromInchToCurrentMeasure(0.05);
-    maxWidthDragRectangle = fromInchToCurrentMeasure(0.25);
+    maxWidthDragRectangle = fromInchToCurrentMeasure(0.45);
     minHeightAttributeClass = fromInchToCurrentMeasure(0.10);
     maxHeightAttributeClass = fromInchToCurrentMeasure(0.40);
     minHeightHeadClass = fromInchToCurrentMeasure(0.3);

@@ -122,8 +122,6 @@ public class GuiMainUml
   
   protected MenuMain menuMain;
 
-  private String selectedFolderPathProjectTree;
-
   private FactoryDiagramUseCase factoryDiagramUseCase;
 
   private FactoryDiagramPackage factoryDiagramPackage;
@@ -474,6 +472,9 @@ public class GuiMainUml
     return srvZoom;
   }
   
+  /**
+   * <p>There is only settings graphics.</p>
+   **/
   @Override
   public SettingsGraphicUml getSettingsGraphicUml() {
     return settingsGraphicUml;
@@ -516,8 +517,8 @@ public class GuiMainUml
             double deltaX = previousX - me.getX();
             double deltaY = previousY - me.getY();
             if(Math.abs(deltaX) >= 1) {
-              settingsGraphicUml.setOffsetX(settingsGraphicUml.getOffsetX() - deltaX);
-              settingsGraphicUml.setOffsetY(settingsGraphicUml.getOffsetY() - deltaY);
+              getSettingsGraphicUml().setOffsetX(getSettingsGraphicUml().getOffsetX() - deltaX);
+              getSettingsGraphicUml().setOffsetY(getSettingsGraphicUml().getOffsetY() - deltaY);
               previousX = pressedAtX;
               previousY = pressedAtY;
               itWasScrolling = true;
@@ -586,10 +587,10 @@ public class GuiMainUml
 
   @Override
   public String getSelectedFolderPathProjectTree() {
-    if(selectedFolderPathProjectTree == null && getAsmProjectUml().getProjectUml() != null) {
-      selectedFolderPathProjectTree = getAsmProjectUml().getProjectUml().getProjectPath();
+    if(getAsmProjectUml().getProjectUml() != null) {
+      return getAsmProjectUml().getProjectUml().getProjectPath();
     }
-    return selectedFolderPathProjectTree;
+    return null;
   }
 
   @Override
@@ -719,31 +720,26 @@ public class GuiMainUml
         prepareForClassDiagram();
         FileAndWriter fileAndWriter = new FileAndWriter(file);
         getControllerDiagramClass().openDiagram(fileAndWriter);
-        selectedFolderPathProjectTree = file.getAbsolutePath().replace(File.separatorChar + file.getName(), "");
       }
       if(file.getName().endsWith(SrvSaveXmlDiagramUml.NAME_EXTENTION_FILE_DIAGRAM_USECASE)) {
         prepareForUseCaseDiagram();
         FileAndWriter fileAndWriter = new FileAndWriter(file);
         getControllerDiagramUseCase().openDiagram(fileAndWriter);
-        selectedFolderPathProjectTree = file.getAbsolutePath().replace(File.separatorChar + file.getName(), "");
       }
       if(file.getName().endsWith(SrvSaveXmlDiagramUml.NAME_EXTENTION_FILE_DIAGRAM_PACKAGE)) {
         prepareForPackageDiagram();
         FileAndWriter fileAndWriter = new FileAndWriter(file);
         getControllerDiagramPackage().openDiagram(fileAndWriter);
-        selectedFolderPathProjectTree = file.getAbsolutePath().replace(File.separatorChar + file.getName(), "");
       }
       if(file.getName().endsWith(SrvSaveXmlDiagramUml.NAME_EXTENTION_FILE_DIAGRAM_OBJECT)) {
         prepareForObjectDiagram();
         FileAndWriter fileAndWriter = new FileAndWriter(file);
         getControllerDiagramObject().openDiagram(fileAndWriter);
-        selectedFolderPathProjectTree = file.getAbsolutePath().replace(File.separatorChar + file.getName(), "");
       }
       if(file.getName().endsWith(SrvSaveXmlDiagramUml.NAME_EXTENTION_FILE_DIAGRAM_SEQUENCE)) {
         prepareForSequenceDiagram();
         FileAndWriter fileAndWriter = new FileAndWriter(file);
         getControllerDiagramSequence().openDiagram(fileAndWriter);
-        selectedFolderPathProjectTree = file.getAbsolutePath().replace(File.separatorChar + file.getName(), "");
       }
     }  
   };
@@ -762,7 +758,6 @@ public class GuiMainUml
       ProjectUml anotherProject = new ProjectUml(getSettingsGraphicUml(), 
           pathPre, projectName);
       getAsmProjectUml().setProjectUml(anotherProject);
-      selectedFolderPathProjectTree = projectPath;
       setActiveControllerDiagramUml(null);
       try {
         getAsmProjectUml().restore();

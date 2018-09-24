@@ -12,10 +12,8 @@
     <section name="Getting started">
 
       <h4>Creating UML diagram with Beige-UML SWING interface</h4>
-      
-      <p>*If you have projects with different unit of measurement and/or different settings (margins, etc), then close application and open it again before switching project.</p>
-      
-      <p>1. Download latest release <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> from <a target="#blank" href="https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22beige-uml-swing%22">Central Maven Repository: search beige-uml-swing</a>. Then rename it to beige-uml.jar</p>
+            
+      <p>1. Download latest release <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> from <a href="https://repo1.maven.org/maven2/org/beigesoft/beige-uml-swing/">https://repo1.maven.org/maven2/org/beigesoft/beige-uml-swing/</a></p>
       <p>2. You should have Java SE Runtime Environment (JRE) version 6+ to run this application. 
        Otherwise install JRE for your operation system (see <a target="#blank" href="http://www.oracle.com/technetwork/java/javase/overview/index.html">oracle.com</a>)</p>
       <p>3. Launch <b>beige-uml-swing-[VERSION]-jar-with-dependencies.jar</b> (usually by right click from file explorer). To launch from command line execute: "java -jar beige-uml-swing-jar-with-dependencies.jar". 
@@ -101,7 +99,7 @@ javadoc -d /home/javadoc -doclet org.beigesoft.uml.service.swing.CreatorDoclet -
 </pre>
 Then launch beige-uml-swing-jar-with-dependencies.jar and open UML project "/home/javadocuml" then make manually changes on diagrams you want. Then again launch javadoc.
 </p>
-<p>*JDK8 and last beige-uml-swing-jar-with-dependencies.jar give out of memory error on huge projects.</p>
+<p>*JDK8 and last beige-uml-swing-jar-with-dependencies.jar give out of memory error on huge projects, previous version and JDK7 don't.</p>
 
     <h4>Beige-UML screenshots</h4>
 

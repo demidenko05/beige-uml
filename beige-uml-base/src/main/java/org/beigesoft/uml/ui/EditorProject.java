@@ -228,6 +228,7 @@ public class EditorProject<M extends ProjectUml, DLI, AEI> extends AEditor<M, DL
     tfLengthSelfRelation.setText(Double.valueOf(getModelClone().getSettingsGraphicUml().getLengthSelfRelation()).toString());
     tfWidthComment.setText(Double.valueOf(getModelClone().getSettingsGraphicUml().getWidthComment()).toString());
     tfHeightMinComment.setText(Double.valueOf(getModelClone().getSettingsGraphicUml().getHeightMinComment()).toString());
+    cmbMeasureUnit.setSelectedItem(getModelClone().getSettingsGraphicUml().getMeasurementUnit());
   }
 
   protected void choosePath(final ITextField tf) {
