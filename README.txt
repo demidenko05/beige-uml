@@ -19,3 +19,6 @@ All versions:
 *Fixed file URI multi-platform separators.
 *Fixed creating diagram in centimeters.
 *Zoom and offset are set to defaults on open/new diagram.
+
+This application you can download from https://repo1.maven.org/maven2/org/beigesoft/beige-uml-swing
+Android version you can find in Google Play Store.
