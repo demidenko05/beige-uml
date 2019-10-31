@@ -62,9 +62,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.google.android</groupId>
+      <groupId>com.android.support</groupId>
       <artifactId>support-v4</artifactId>
-      <version>r6</version>
+      <version>28.0.0</version>
+      <type>aar</type>
     </dependency>
     <dependency>
       <groupId>org.beigesoft</groupId>
@@ -98,5 +99,13 @@
       </plugin>
     </plugins>
   </build>
+  
+  <repositories>
+    <repository>
+      <id>google-repo</id>
+      <name>Google repo</name>
+      <url>https://maven.google.com/</url>
+    </repository>
+  </repositories>
 
 </project>

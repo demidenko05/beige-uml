@@ -1,21 +1,26 @@
 package org.beigesoft.uml.android;
 
-import java.lang.reflect.Method;
+//import java.lang.reflect.Method;
 
-import android.content.ContextWrapper;
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+//import android.content.ContextWrapper;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.Manifest;
 import android.content.pm.PackageManager;
+import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
 import org.beigesoft.android.treechooser.FragmentNodes;
 import org.beigesoft.android.ui.widget.FileChooserAdaptor;
 import org.beigesoft.uml.model.ECommands;
 
-public class ActivityUml extends Activity {
+public class ActivityUml extends FragmentActivity {
   //GUI:
   private GuiMainUml guiMainUml;
 
@@ -27,8 +32,7 @@ public class ActivityUml extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    //Only way to publish this project in central Maven repository
-    //cause missing Google dependencies:
+    /*
     if (android.os.Build.VERSION.SDK_INT >= 23) {
       try {
         Class[] argTypes = new Class[] {String.class};
@@ -51,6 +55,17 @@ public class ActivityUml extends Activity {
       } catch (Exception x) {
           x.printStackTrace();
       }
+    }*/
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission
+      .WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(this, new String[] {Manifest
+        .permission.READ_EXTERNAL_STORAGE, Manifest.permission
+          .WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET},
+            PERMISSIONS_REQUESTS);
+    }
+    if (!isExternalStorageWritable()) { //TODO in scoped storage
+      Toast.makeText(getApplicationContext(), getResources()
+        .getString(R.string.noPerm), Toast.LENGTH_LONG).show();
     }
     System.setProperty("org.xml.sax.driver","org.xmlpull.v1.sax2.Driver");
     guiMainUml = new GuiMainUml(this);
@@ -67,6 +82,11 @@ public class ActivityUml extends Activity {
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
+    if (!isExternalStorageWritable()) {
+      Toast.makeText(getApplicationContext(), getResources()
+        .getString(R.string.noPerm), Toast.LENGTH_LONG).show();
+      return false;
+    }
     switch (item.getItemId()) {
     case R.id.action_new_project:
       guiMainUml.newProjectUml();
@@ -279,5 +299,17 @@ public class ActivityUml extends Activity {
         guiMainUml.refreshGui();
       }
     }
+  }
+
+  /**
+   * <p>Checks if external storage is available for read and write.</p>
+   * @return if ES is writable
+   **/
+  public boolean isExternalStorageWritable() {
+    String state = Environment.getExternalStorageState();
+    if (Environment.MEDIA_MOUNTED.equals(state)) {
+      return true;
+    }
+    return false;
   }
 }

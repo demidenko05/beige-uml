@@ -23,7 +23,7 @@ import org.beigesoft.ui.widget.IChooserFile;
  */
 public class FileChooserAdaptor implements IChooserFile {
 
-  public static final int REQUEST_NODE_FILE = 712362;
+  public static final int REQUEST_NODE_FILE = 12;
 
   private final Activity activity;
   
