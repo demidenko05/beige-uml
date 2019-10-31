@@ -10,7 +10,7 @@ Features:
 This is the first free, truly cross-platform UML editor that can make a reliable (real-life) UML class diagram (with a frame, many classes and BUS-relationships).
 For non-huge projects generated Java-docs with PNG diagrams (with editable sources) it is also reliable tool.
 Some customers demand this (that Beige-UML can do, but another free UML editors can't).
-This is for programmers, so fill free to improve this project - add other diagrams, make Java-doc with SVG diagrams.
+This is for programmers, so feel free to improve this project - add other diagrams, make Java-doc with SVG diagrams.
 
 Demo project DemoUML.zip you can find in http://sourceforge.net/projects/beigeuml
 
@@ -34,9 +34,9 @@ Beige-UML это бесплатный, функциональный и крос�
 
 New:
 
-Switched to Android API28 
+Recompiled with Android API28 
 
-Используется Android API28 
+Перекомпилирован для Android API28 
 
 ----------------------------------------------------------------------------------------------------------
 
