@@ -31,7 +31,8 @@ Beige-UML это бесплатный, функциональный и крос�
 Демо-проект DemoUML.zip находится в http://sourceforge.net/projects/beigeuml
 
 ---------------------------------------------------------------------------------------------------------------------
-
+TODO on new AVD (end of October 2019) and API28 all editor's dialogs do not show buttons layout e.g. dialog_edit_frame.xml the last linear layout with style buttonBarStyle. There is no this problem on real devices (Android 4.2.2 and 7.0).
+-----------------------------------------------------------
 New:
 
 Recompiled with Android API28 
