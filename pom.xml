@@ -16,6 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.6</java.version>
     <tools-path>${java.home}${file.separator}..${file.separator}lib${file.separator}tools.jar</tools-path>
+    <android.platform>30</android.platform>
   </properties>
   
   <profiles>
@@ -37,7 +38,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>2.2.1</version>
+            <version>3.2.0</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -50,7 +51,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>2.10.2</version>
+            <version>3.2.0</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
@@ -58,7 +59,7 @@
                   <goal>jar</goal>
                 </goals>
                 <configuration>
-                  <additionalparam>-Xdoclint:none</additionalparam>
+                  <doclint>none</doclint>
                 </configuration>
               </execution>
             </executions>
@@ -66,7 +67,7 @@
           <plugin>
             <groupId>com.simpligility.maven.plugins</groupId>
             <artifactId>android-maven-plugin</artifactId>
-            <version>4.5.0</version>
+            <version>4.6.0</version>
             <inherited>true</inherited>
             <configuration>
               <sign>
@@ -92,7 +93,7 @@
           <plugin>  
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
+            <version>3.0.0</version>
             <executions>
               <execution>
                 <id>remove-unaligned-apk</id>
@@ -111,7 +112,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jarsigner-plugin</artifactId>
-            <version>1.4</version>
+            <version>3.0.0</version>
             <executions>
               <execution>
                 <id>signing</id>
@@ -164,7 +165,7 @@
     <dependency>
      <groupId>junit</groupId>
      <artifactId>junit</artifactId>
-     <version>4.10</version>
+     <version>4.13.1</version>
      <scope>test</scope>
     </dependency>
   </dependencies>
@@ -195,7 +196,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>2.7</version>
+        <version>3.2.0</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -210,7 +211,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.1</version>
+        <version>3.0.0-M5</version>
         <configuration>
           <useSystemClassLoader>false</useSystemClassLoader>
           <useFile>false</useFile>
@@ -220,7 +221,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
+        <version>3.8.1</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
@@ -233,12 +234,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
+        <version>3.0.0-M1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.4</version>
+        <version>3.3.0</version>
         <inherited>false</inherited>
         <configuration>
           <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
